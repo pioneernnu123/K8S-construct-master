@@ -1,0 +1,165 @@
+课题三容器管理测试操作手册
+对应《结题测试大纲-1009》3-2-0001 至 3-2-0013
+
+一、测试前准备
+
+按 README.txt 完成两台服务器上的安装。以下测试命令统一在控制节点执行，工作负载由集群调度到工作节点。使用安装时生成的配置文件，在同一个 Bash 终端执行以下命令。
+
+    cd ~/rv-container-binary-20261104
+    export RV_ENV="$PWD/site-config/rv-platform.env"
+    source "$RV_ENV"
+    export RV_CASES="$RV_SRC/platform/acceptance"
+    python3 -B tools/release.py preflight
+
+确认安装检查输出 passed: true。用 kubectl get nodes -o wide 确认 TEST_NODE 对应的工作节点为 Ready。TEST_RESULTS 是所有用例的报告目录，默认 ~/rv-test-results/acceptance。
+
+按下文逐项运行，每项等待命令结束后再执行下一项。run.sh 自动创建当次测试所需资源、执行操作、记录结果并清理。终端末尾打印本次结果目录。打开该目录中的 report.json，检查 status、events 和 error。PASS 为通过，FAIL 为失败，SKIP 为本次条件不足，INCOMPLETE 为交付材料或实测结果尚未齐全。测试结果应按现场输出填写。
+
+二、逐项执行与判定
+
+3-2-0001  HPA 扩容
+
+    bash "$RV_CASES/01-hpa-expand/run.sh"
+
+1. 脚本创建一个初始副本的测试 Deployment 和项目 ResourcePolicy。Pod 就绪后，节点程序从 cgroup 采样，包内监控提供按 Pod UID 查询的内存数据，项目控制器读取第一组样本。
+2. 脚本开启测试 Pod 的内存压力。项目控制器读取 Pod 内存用量，按 80% 的目标使用率计算副本数并执行扩容。副本范围为 1 至 3。
+3. 查看 report.json 中 expanded 事件保存的 Deployment 和 policy。policy.status 中应有 podMemorySamples 与 lastAction，且 lastAction 的 to 大于 from。Deployment 的实际就绪副本数应等于 to。上述条件成立且报告状态为 PASS，即通过。
+
+3-2-0002  HPA 缩容
+
+    bash "$RV_CASES/02-hpa-shrink/run.sh"
+
+1. 脚本独立部署测试负载，开启内存压力并等待副本扩容和就绪。
+2. 脚本关闭运行中测试 Pod 的内存压力。项目控制器依据连续采样和缩容等待时间，计算并执行缩容。
+3. 在 report.json 中先核对 expanded 事件，再核对 shrunk 事件。shrunk 中项目策略的 lastAction.from 大于 1、to 为 1，Deployment 的 spec.replicas 与 status.readyReplicas 都等于 1。上述条件成立且报告状态为 PASS，即通过。
+
+第 3 至 7 项和第 12 项使用项目调度器 rv-scheduler。绑定成功的报告包含 project-scheduler-binding 事件和目标节点，拒绝调度的报告包含 project-scheduler-rejection 事件和拒绝原因。仅 Pod 状态或节点位置吻合，尚不足以通过这些用例。
+
+3-2-0003  Pod 亲和性
+
+    bash "$RV_CASES/03-pod-affinity/run.sh"
+
+1. 脚本启动带指定标签的基准 Pod anchor，等待其就绪。
+2. 脚本创建带匹配亲和规则的 follower，等待其就绪，再创建要求匹配一个不存在标签的 unmatched。
+3. 在 report.json 中核对 anchor 与 follower 都由 rv-scheduler 绑定且节点相同。unmatched 应未分配节点，项目调度器给出的原因包含 pod-affinity。上述条件满足且报告状态为 PASS，即通过。
+
+3-2-0004  Pod 反亲和性及节点标签排除
+
+    bash "$RV_CASES/04-node-exclusion/run.sh"
+
+1. 脚本确认集群节点均没有本次使用的匹配标签，创建要求该标签的 excluded Pod。
+2. 脚本在目标节点启动 anchor，再创建与 anchor 存在反亲和规则的 anti Pod。
+3. 在 report.json 中核对 excluded 与 anti 均未分配节点，项目调度器分别记录 node-affinity 和 pod-anti-affinity。报告状态为 PASS 即通过。
+
+3-2-0005  优先级抢占
+
+1. 在控制节点检查目标工作节点上的 Pod，确认节点用于本次测试并具有可用 CPU。
+
+    kubectl get pods -A --field-selector "spec.nodeName=$TEST_NODE" -o wide
+
+   若只有一个工作节点且监控 Pod 也在该节点，测试脚本会将它识别为无关工作负载。经现场同意在专用测试环境暂时停止监控，再执行本项。部署在其他工作节点时可直接使用独占测试节点。
+
+    kubectl -n rv-monitoring scale deployment rv-prometheus --replicas=0
+    kubectl -n rv-monitoring get pods -l app=rv-prometheus -o wide
+
+   等待目标节点上的监控 Pod 退出。目标节点还有无关业务 Pod 时，应选用独占测试节点。使用另一节点时先确认其已导入镜像，再在下条测试命令前设置 TEST_NODE 为该节点名。
+
+2. 执行抢占测试。
+
+    ALLOW_PREEMPTION_TEST=1 bash "$RV_CASES/05-preemption/run.sh"
+
+3. 脚本在目标节点启动低优先级 Pod，等待它就绪并占用 CPU。随后创建高优先级 Pod，使两者的总请求超过可用 CPU。
+4. 核对项目调度器发起驱逐、等待资源释放，再绑定高优先级 Pod。report.json 的 preempted 事件中，victimUIDs 应包含低优先级 Pod 的 UID，高优先级 Pod 就绪且报告状态为 PASS，即通过。出现 SKIP 时，按报告所列条件处理后重跑。
+5. 若步骤 1 暂停了监控，测试结束后恢复并等待就绪。
+
+    kubectl -n rv-monitoring scale deployment rv-prometheus --replicas=1
+    kubectl -n rv-monitoring rollout status deployment/rv-prometheus --timeout=180s
+
+3-2-0006  无容忍度的污点调度
+
+    bash "$RV_CASES/06-taint-reject/run.sh"
+
+1. 脚本给目标工作节点加本次专用的 NoSchedule 污点。
+2. 脚本创建指向该节点、缺少匹配容忍度的测试 Pod。
+3. 在 report.json 中核对 Pod 未分配节点，项目调度器记录 untolerated-taint，且状态为 PASS。脚本结束时移除本次污点。
+
+3-2-0007  有容忍度的污点调度
+
+    bash "$RV_CASES/07-taint-tolerate/run.sh"
+
+1. 脚本给目标工作节点加本次专用的 NoSchedule 污点。
+2. 脚本创建带匹配容忍度且指向该节点的测试 Pod，等待其就绪。
+3. 在 report.json 的 project-scheduler-binding 中核对项目调度器将 Pod 绑定到 TEST_NODE。Pod 就绪且报告状态为 PASS，即通过。脚本结束时移除本次污点。
+
+第 8 至 11 项的 MPI 测试环境
+
+单工作节点按配置文件的 MPI_WORKERS=1 运行，每个 Worker Pod 运行 2 个 rank。如果现场测试要求跨工作节点，将 MPI_WORKERS 设为 2，并确认至少有两个可调度的 RISC-V 工作节点，均已导入镜像。两种环境使用相同程序和用例，报告按实际节点数记录。
+
+3-2-0008  广播
+
+    bash "$RV_CASES/08-bcast/run.sh"
+
+1. 脚本提交广播任务，启动 Launcher 和 Worker，等待任务完成。
+2. 程序把根 rank 的测试数据传给各 rank，并检查收到的数据。
+3. 查看本次结果目录的日志及 report.json。任务成功，operation 为 bcast、correct 为 true、ranks 等于 MPI_WORKERS 乘 2，且报告状态为 PASS，即通过。
+
+3-2-0009  规约
+
+    bash "$RV_CASES/09-reduce/run.sh"
+
+1. 脚本提交规约任务并等待任务完成。
+2. 各 rank 提交测试数据，程序在指定根 rank 上计算归约结果并校验数值。
+3. 查看本次日志及 report.json。任务成功，operation 为 reduce、correct 为 true、ranks 等于 MPI_WORKERS 乘 2，且报告状态为 PASS，即通过。
+
+3-2-0010  全收集
+
+    bash "$RV_CASES/10-allgather/run.sh"
+
+1. 脚本提交全收集任务并等待任务完成。
+2. 各 rank 提供各自的数据片段，程序在每个 rank 上校验收集到的数据及顺序。
+3. 查看本次日志及 report.json。任务成功，operation 为 allgather、correct 为 true、ranks 等于 MPI_WORKERS 乘 2，且报告状态为 PASS，即通过。
+
+3-2-0011  计算通信融合
+
+    bash "$RV_CASES/11-fusion/run.sh"
+
+1. 脚本默认进行三组配对测量。每组运行普通限额下的串行和融合任务，再对收紧 CPU 限额后的两种运行方式进行测量。脚本在各组间交替运行顺序。
+2. 脚本校验每次任务的计算结果，以及同组使用的镜像、节点和任务规模，并分别计算普通限额与收紧限额下的加速比。
+3. 打开 report.json，找到 fusion-performance-decision。普通限额下的加速比中位数达到测试门槛，收紧限额后的加速比中位数低于普通限额，且报告状态为 PASS，即通过。查看同目录 pair-*.log 可复核原始数据。
+4. 本包默认门槛为 1.05 倍。测试方另行确定门槛时，在运行前设置 FUSION_MIN_SPEEDUP。保留报告中的 minimumSpeedup 字段，便于复核现场采用的门槛。
+
+3-2-0012  节点亲和性
+
+    bash "$RV_CASES/12-node-affinity/run.sh"
+
+1. 脚本使用目标节点标签生成带节点亲和规则的 Pod 清单并提交。
+2. 等待 Pod 就绪，在 pods.json 中核对 target 的 spec.nodeName 与 TEST_NODE 一致。
+3. 核对 report.json 的 project-scheduler-binding 记录。项目调度器绑定到目标节点，Pod 就绪且报告状态为 PASS，即通过。
+
+3-2-0013  方案交付与开源贡献
+
+1. 确认前 12 项均已用当前交付包执行，且报告统一保存在 TEST_RESULTS。准备实际公开仓库地址、完整提交哈希，以及仓库中两组目标源码的路径。
+2. 在控制节点复制示例配置并填写真实信息。repositoryUrl 填公开 HTTPS 仓库地址，revision 填完整 Git 提交哈希，mapping 填两组源码在该提交中的目录。
+
+    cp -n CONTRIBUTION.example.json "$PWD/site-config/contribution.json"
+    export CONTRIBUTION_CONFIG="$PWD/site-config/contribution.json"
+    vi "$CONTRIBUTION_CONFIG"
+
+3. 执行交付核验。控制节点需能访问该公开仓库。
+
+    bash "$RV_CASES/13-delivery-contribution/run.sh"
+
+4. 在报告中查看 integrity、cluster、functionalReports 和 contribution。交付文件校验与集群检查通过，前 12 项均为 PASS，且经公开提交核验的目标功能代码贡献比例达到 50%，本项才为 PASS。报告同时保留提交哈希、逐文件核对及代码行统计，供测试人员复核。
+
+三、保存结果和清理
+
+每项结束后保留终端提示的整个结果目录，包含 report.json、测试对象或事件记录，以及 MPI 原始日志。可在另一个控制节点终端用以下命令查找正在运行的测试命名空间，然后查看相应 Pod。
+
+    kubectl get namespace -l platform.riscv.io/acceptance
+    kubectl -n 实际测试命名空间 get pods -o wide
+
+常规用例在通过后清理命名空间。失败后，如报告中的 namespaceRetained 为 true，先保存排查记录，再执行对应目录的 cleanup.sh，并传入该次 report.json 的完整路径。例如清理第 1 项。
+
+    bash "$RV_CASES/01-hpa-expand/cleanup.sh" "/实际结果目录/report.json"
+
+第 13 项只生成核验报告。提交测试材料时，按大纲编号整理 13 项报告、必要日志和公开提交材料。
