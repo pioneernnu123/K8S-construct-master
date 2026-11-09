@@ -1,0 +1,18 @@
+{
+  "apiVersion": "platform.riscv.io/v1alpha1",
+  "kind": "ResourcePolicy",
+  "metadata": {
+    "name": "load",
+    "namespace": "@@NS@@"
+  },
+  "spec": {
+    "deployment": "load",
+    "metricSource": "PodMemory",
+    "target": 0.8,
+    "minReplicas": 1,
+    "maxReplicas": 3,
+    "cooldownSeconds": 10,
+    "downscaleStabilizationSeconds": 15,
+    "maxMetricAgeSeconds": 45
+  }
+}

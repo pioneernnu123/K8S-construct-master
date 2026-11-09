@@ -1,0 +1,11 @@
+prometheusImage: "localhost/rv-monitor-core:0.1.0"
+imagePullPolicy: Never
+nodeSelector: {}
+service:
+  type: NodePort
+  prometheusNodePort: 30090
+nodeTargets: []
+retention: 15m
+scrapeInterval: 10s
+scrapeTimeout: 5s
+lookback: 45s

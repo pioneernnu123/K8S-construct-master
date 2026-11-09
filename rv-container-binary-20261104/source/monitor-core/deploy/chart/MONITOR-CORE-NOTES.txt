@@ -1,0 +1,3 @@
+轻量监控后端：仅内存15分钟历史，不提供原Prometheus的7天持久化、完整PromQL、网页和告警。
+设置prometheusImage为新镜像，nodeTargets沿用节点agent地址；控制器prometheusURL保持原值。
+本目录用于替换原ecosystem chart，不要并行安装两个同名Service。

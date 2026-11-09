@@ -1,0 +1,54 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "anchor",
+    "namespace": "@@NS@@",
+    "labels": {
+      "app": "anchor"
+    }
+  },
+  "spec": {
+    "nodeSelector": {
+      "kubernetes.io/hostname": "@@NODE_HOSTNAME@@"
+    },
+    "restartPolicy": "Never",
+    "automountServiceAccountToken": false,
+    "containers": [
+      {
+        "name": "workload",
+        "image": "@@WORKLOAD_IMAGE@@",
+        "imagePullPolicy": "Never",
+        "command": [
+          "/bin/rv-test-workload"
+        ],
+        "resources": {
+          "requests": {
+            "cpu": "10m",
+            "memory": "16Mi"
+          },
+          "limits": {
+            "cpu": "1",
+            "memory": "128Mi"
+          }
+        },
+        "args": [
+          "hold"
+        ],
+        "readinessProbe": {
+          "httpGet": {
+            "path": "/health",
+            "port": 8080
+          },
+          "initialDelaySeconds": 1,
+          "periodSeconds": 2
+        }
+      }
+    ],
+    "securityContext": {
+      "runAsUser": 65534,
+      "runAsGroup": 65534
+    },
+    "schedulerName": "rv-scheduler"
+  }
+}

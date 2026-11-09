@@ -1,0 +1,131 @@
+[
+  {
+    "directory": "01-hpa-expand",
+    "title": "HPA 扩容",
+    "outline": "3-2-0001",
+    "notes": "节点程序采集 Pod cgroup 内存，通过包内监控查询，项目控制器记录实际扩缩容动作。",
+    "manifests": [
+      "deployment.yaml",
+      "resource-policy.yaml"
+    ]
+  },
+  {
+    "directory": "02-hpa-shrink",
+    "title": "HPA 收缩",
+    "outline": "3-2-0002",
+    "notes": "节点程序采集 Pod cgroup 内存，通过包内监控查询，项目控制器记录实际扩缩容动作。",
+    "manifests": [
+      "deployment.yaml",
+      "resource-policy.yaml"
+    ]
+  },
+  {
+    "directory": "03-pod-affinity",
+    "title": "Pod 亲和性",
+    "outline": "3-2-0003",
+    "notes": "测试 Pod 指定项目调度器 rv-scheduler，报告核对绑定、拒绝原因或实际抢占证据。",
+    "manifests": [
+      "anchor.yaml",
+      "follower.yaml",
+      "unmatched.yaml"
+    ]
+  },
+  {
+    "directory": "04-node-exclusion",
+    "title": "节点标签排除与 Pod 反亲和性",
+    "outline": "3-2-0004",
+    "notes": "测试 Pod 指定项目调度器 rv-scheduler，报告核对绑定、拒绝原因或实际抢占证据。",
+    "manifests": [
+      "pod.yaml",
+      "anchor.yaml",
+      "anti.yaml"
+    ]
+  },
+  {
+    "directory": "05-preemption",
+    "title": "优先级抢占",
+    "outline": "3-2-0005",
+    "notes": "测试 Pod 指定项目调度器 rv-scheduler，报告核对绑定、拒绝原因或实际抢占证据。",
+    "manifests": [
+      "priorities.yaml",
+      "low.yaml",
+      "high.yaml"
+    ]
+  },
+  {
+    "directory": "06-taint-reject",
+    "title": "污点无容忍",
+    "outline": "3-2-0006",
+    "notes": "测试 Pod 指定项目调度器 rv-scheduler，报告核对绑定、拒绝原因或实际抢占证据。",
+    "manifests": [
+      "pod.yaml"
+    ]
+  },
+  {
+    "directory": "07-taint-tolerate",
+    "title": "污点有容忍",
+    "outline": "3-2-0007",
+    "notes": "测试 Pod 指定项目调度器 rv-scheduler，报告核对绑定、拒绝原因或实际抢占证据。",
+    "manifests": [
+      "pod.yaml"
+    ]
+  },
+  {
+    "directory": "08-bcast",
+    "title": "广播",
+    "outline": "3-2-0008",
+    "notes": "默认一个 Worker Pod 两个 rank；只有多个物理节点参与才能验证跨节点分层收益。融合计时实测，不预设加速结果。",
+    "manifests": [
+      "native.yaml",
+      "hierarchical.yaml"
+    ]
+  },
+  {
+    "directory": "09-reduce",
+    "title": "规约",
+    "outline": "3-2-0009",
+    "notes": "默认一个 Worker Pod 两个 rank；只有多个物理节点参与才能验证跨节点分层收益。融合计时实测，不预设加速结果。",
+    "manifests": [
+      "native.yaml",
+      "hierarchical.yaml"
+    ]
+  },
+  {
+    "directory": "10-allgather",
+    "title": "全收集",
+    "outline": "3-2-0010",
+    "notes": "默认一个 Worker Pod 两个 rank；只有多个物理节点参与才能验证跨节点分层收益。融合计时实测，不预设加速结果。",
+    "manifests": [
+      "native.yaml",
+      "hierarchical.yaml"
+    ]
+  },
+  {
+    "directory": "11-fusion",
+    "title": "计算通信融合",
+    "outline": "3-2-0011",
+    "notes": "默认一个 Worker Pod 两个 rank；只有多个物理节点参与才能验证跨节点分层收益。融合计时实测，不预设加速结果。",
+    "manifests": [
+      "serial.yaml",
+      "overlap.yaml",
+      "serial-limited.yaml",
+      "overlap-limited.yaml"
+    ]
+  },
+  {
+    "directory": "12-node-affinity",
+    "title": "节点亲和性",
+    "outline": "3-2-0012",
+    "notes": "测试 Pod 指定项目调度器 rv-scheduler，报告核对绑定、拒绝原因或实际抢占证据。",
+    "manifests": [
+      "pod.yaml"
+    ]
+  },
+  {
+    "directory": "13-delivery-contribution",
+    "title": "方案交付与真实开源贡献核验",
+    "outline": "3-2-0013",
+    "notes": "文件、集群、前12项正式报告和远端提交源码核验；缺少真实社区提交证据时不判通过。",
+    "manifests": []
+  }
+]

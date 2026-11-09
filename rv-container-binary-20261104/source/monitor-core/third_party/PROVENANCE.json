@@ -1,0 +1,104 @@
+{
+  "prometheusCommit": "007a9e9ba628f815ce83e1ba9f29b97981996c3c",
+  "classification": "All retained third_party Go files, including local adaptations, are conservatively counted as third-party reuse. Project service/integration code is counted separately.",
+  "files": [
+    {
+      "path": "third_party/textparse/promparse.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "model/textparse/promparse.go",
+      "upstreamSha256": "e22a6b685d46c6b9031d242cd2f451cc95993bc906fcf124a93005eeb9069689",
+      "changes": "Local imports; removed native-histogram stubs and type/unit-label injection. Generated lexers retained unchanged except package location."
+    },
+    {
+      "path": "third_party/textparse/promlex.l.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "model/textparse/promlex.l.go",
+      "upstreamSha256": "571999b3ea2f949b9dc0f9dd262fc72e6e67284ab85206c3f98b0413cfd66658",
+      "changes": "Local imports; removed native-histogram stubs and type/unit-label injection. Generated lexers retained unchanged except package location."
+    },
+    {
+      "path": "third_party/textparse/openmetricsparse.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "model/textparse/openmetricsparse.go",
+      "upstreamSha256": "8fb3fba6b9224c585ceea5295585975447a2d6b9ea097bb4cfad693c5d290b82",
+      "changes": "Local imports; removed native-histogram stubs and type/unit-label injection. Generated lexers retained unchanged except package location."
+    },
+    {
+      "path": "third_party/textparse/openmetricslex.l.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "model/textparse/openmetricslex.l.go",
+      "upstreamSha256": "81538f3256f3c37cac7b51f01d15b5ef7151b423a6c7c93aff3b17ff53d1b5e8",
+      "changes": "Local imports; removed native-histogram stubs and type/unit-label injection. Generated lexers retained unchanged except package location."
+    },
+    {
+      "path": "third_party/textparse/interface.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "model/textparse/interface.go",
+      "upstreamSha256": "2f3e7791fbe8f47e6538aff7b2639dbf15bc3a21e37ca5296afedddaa737c527",
+      "changes": "Retained text/float interface and Entry constants; removed factory for unsupported protobuf/native-histogram parsers."
+    },
+    {
+      "path": "third_party/labels/builder.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "model/labels/labels_slicelabels.go",
+      "upstreamSha256": "0a737e0c10de7b7eabf47468b914afc2ed822bcfb84e43bbbdb9b19c353f2247",
+      "changes": "Retained slice ScratchBuilder only; removed unrelated operations/build tag; replaced Go 1.23 unique with Go 1.21-compatible strings.Clone."
+    },
+    {
+      "path": "third_party/labels/float.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "model/labels/float.go",
+      "upstreamSha256": "12851390b7c2169b805e749c50edfd244ece4721272a7a5a6f62dd58e569a6a8",
+      "changes": "Unmodified."
+    },
+    {
+      "path": "third_party/exemplar/exemplar.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "model/exemplar/exemplar.go",
+      "upstreamSha256": "09372635784fa13bff63090265e1f7267eeb522c48c7ef33045172c9e61ab096",
+      "changes": "Retained Exemplar structure used by OpenMetrics parser."
+    },
+    {
+      "path": "third_party/value/value.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "model/value/value.go",
+      "upstreamSha256": "02b6422420c8805b7ef375dd5629b8063e9c1596b7ecb217211b535fd8b0fee7",
+      "changes": "Unmodified."
+    },
+    {
+      "path": "third_party/model/metadata.go",
+      "upstream": "prometheus/common@v0.62.0",
+      "upstreamPath": "model/metadata.go",
+      "upstreamSha256": "9357975b8d24d9e78808e61d48028d56b322d1077a8c0f6d2e31cefa3f4c44ab",
+      "changes": "Retained metric types and two metric-label constants; no protobuf dependency."
+    },
+    {
+      "path": "third_party/xxhash/sum64.go",
+      "upstream": "cespare/xxhash@v2.3.0",
+      "upstreamPath": "xxhash_other.go",
+      "upstreamSha256": "850a8d36bac7866042fa96965223a61ade436973280fb4ce537058b05ceaea17",
+      "changes": "Pure Go Sum64 plus constants/helpers from xxhash.go; streaming digest and assembly removed."
+    },
+    {
+      "path": "third_party/chunkenc/xor.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "tsdb/chunkenc/xor.go",
+      "upstreamSha256": "3725d03afe6dc3dac99b3967e72bc80aa308462d633c3d186e147a2f5ec18469",
+      "changes": "Removed native-histogram methods; integer range converted to Go 1.21 loop; BSD notice retained."
+    },
+    {
+      "path": "third_party/chunkenc/bstream.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "tsdb/chunkenc/bstream.go",
+      "upstreamSha256": "22cf62be56c13e5a79e8da29019d85a7e910df7100bec8ce25acef6797e627fe",
+      "changes": "Integer range converted to Go 1.21 loop; upstream Apache and embedded BSD notices retained."
+    },
+    {
+      "path": "third_party/chunkenc/interface.go",
+      "upstream": "prometheus/prometheus@v3.13.4",
+      "upstreamPath": "tsdb/chunkenc/chunk.go",
+      "upstreamSha256": "865153241667103ab81720fa0dec839c74e5d820f3284343a3abf917d73f5eb3",
+      "changes": "Retained float-only chunk interface; no histogram, pool, mock, or XOR2 dependency."
+    }
+  ]
+}

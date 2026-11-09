@@ -1,0 +1,82 @@
+RISC-V容器平台轻量监控组件 rv-monitor-core 0.1.0
+
+用途
+为容器化管理方案提供节点指标采集、指标解析、短时样本存储和即时查询。
+保留现有节点agent及控制器的HTTP接入方式，适用于发布包中的
+max(rv_node_cpu_utilization_ratio)等场景策略。
+
+代码组成
+third_party/：裁剪自Prometheus v3.13.4的文本解析、OpenMetrics解析、
+标签构建、浮点处理和XOR样本编码；包含其必需的Prometheus common类型
+及xxHash纯Go实现。上游许可证、BSD声明和逐文件来源均保留。
+internal/、cmd/：本项目编写的采集服务、内存历史存储组织、查询适配和服务入口。
+integration/：部署接入和原控制器联调工具。
+tools/package_oci.py：离线镜像打包脚本。
+bin/：linux/riscv64静态可执行文件。
+deploy/chart/：已经生成的轻量监控Helm部署模板。
+CODE-STATISTICS.json、CODE-STATISTICS.csv：统计口径和逐文件清单。
+
+功能范围
+1. 定期拉取现有节点agent的/metrics，支持多节点静态目标列表。
+2. 解析Prometheus 0.0.4和OpenMetrics 1.0文本中的浮点序列。
+3. 使用上游XOR编码保存内存中的短时历史，默认保留15分钟。
+4. 提供/api/v1/query、/api/v1/targets、/-/ready和/-/healthy。
+5. 即时查询支持指标选择、标签=、!=、=~、!~过滤及max、min、avg、sum、count聚合。
+6. 支持即时查询的time参数，在保留窗口内读取历史时点的最近样本。
+7. 采集失败和过期数据不参与当前CPU负载聚合，不把失败节点的CPU负载替换成0。
+8. 保留节点采样时间，避免同一份冻结指标被调度器重复认作新观测。
+
+精简范围
+没有网页、告警、远程读写、完整PromQL、原生直方图、磁盘TSDB和7天持久化。
+不支持的表达式返回HTTP 422。进程重启后内存历史清空。
+该组件适配有限的节点指标和调度查询需求；需要完整PromQL或长期持久化时，
+应保留完整版监控后端。不能把原有7天磁盘存储能力表述为本精简版能力。
+
+代码统计
+第三方裁剪源码：14个Go文件，4,217个物理行，3,174个有效代码行。
+物理行包含空行和注释；占比计算统一使用有效代码行。
+裁剪后的third_party文件连同其本地适配全部保守计为第三方复用。
+
+20261104 交付的目标功能有效行数为 9,561。
+自研 6,387 行，第三方监控复用 3,174 行，自研占比 66.80%。
+安装部署脚本、迁移插件和运行时适配均计入自研部分。
+失效扰动抑制组件尚未集成，本次未计入。
+通用Kubernetes、containerd、runc、CRIU、Open MPI等作为外部基础环境另列；
+本比例是容器化管理目标功能源码的比例，不是全部上游依赖展开后的软件栈比例。
+这套统计对应切换轻量监控后的源码组合，不能直接当作旧发布包现有部署的比例。
+自研代码占比与开源社区实际贡献比例是不同的统计项。
+
+本机直接运行（RISC-V Linux）
+1. 修改monitor.example.json中的targets，填入节点agent地址，例如192.168.1.101:9108。
+2. chmod +x bin/rv-monitor-core-linux-riscv64
+3. ./bin/rv-monitor-core-linux-riscv64 --config.file=monitor.example.json --web.listen-address=:9090
+4. curl -G http://127.0.0.1:9090/api/v1/query --data-urlencode 'query=max(rv_node_cpu_utilization_ratio)'
+
+离线K8s接入
+1. 将rv-monitor-core-0.1.0-linux-riscv64.oci.tar传到运行该Pod的RISC-V节点。
+2. 使用ctr -n k8s.io images import rv-monitor-core-0.1.0-linux-riscv64.oci.tar导入镜像。
+3. 用ctr -n k8s.io images ls确认镜像名localhost/rv-monitor-core:0.1.0。
+4. 在deploy/chart/values.yaml中设置：
+   prometheusImage: "localhost/rv-monitor-core:0.1.0"
+   imagePullPolicy: IfNotPresent
+   nodeTargets: ["192.168.1.101:9108", "192.168.1.102:9108"]
+5. 使用这份chart更新原监控Helm release，沿用原release名称和namespace，
+   不再另外创建一个同名rv-prometheus服务。
+   示例：helm upgrade --install <原release名称> deploy/chart -n <原namespace> -f <配置文件>
+6. rv-prometheus服务名称、9090端口和控制器prometheusURL保持一致。
+7. 检查Pod就绪、/api/v1/targets的节点状态及现有场景策略的实际执行。
+
+重新编译
+使用Go 1.21或更高版本；本模块没有外部Go模块下载依赖。
+CGO_ENABLED=0 GOOS=linux GOARCH=riscv64 go build -trimpath -ldflags='-s -w' -o bin/rv-monitor-core-linux-riscv64 ./cmd/rv-monitor-core
+python3 tools/package_oci.py
+
+复核统计
+python3 tools/count_code.py --platform-source <rv-platform-release-20261012/source/riscv-platform-components目录>
+空行、注释、Python文档字符串、测试、验证、样例和统计工具不计。
+重复源码只计一次；声明式配置未混入本次程序源码行数。
+
+验证状态
+本机单元测试、静态检查、原调度控制器HTTP联调、Helm模板渲染和lint已通过。
+RISC-V静态交叉编译已完成，离线OCI镜像的结构和摘要已核验。
+尚未在RISC-V集群上进行镜像导入、实机运行和部署验收。

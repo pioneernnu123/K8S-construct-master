@@ -1,0 +1,52 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "low",
+    "namespace": "@@NS@@",
+    "labels": {},
+    "annotations": {
+      "platform.riscv.io/preemptible": "true"
+    }
+  },
+  "spec": {
+    "nodeSelector": {
+      "kubernetes.io/hostname": "@@NODE_HOSTNAME@@"
+    },
+    "restartPolicy": "Never",
+    "automountServiceAccountToken": false,
+    "containers": [
+      {
+        "name": "workload",
+        "image": "@@WORKLOAD_IMAGE@@",
+        "imagePullPolicy": "Never",
+        "command": [
+          "/bin/rv-test-workload"
+        ],
+        "resources": {
+          "requests": {
+            "cpu": "@@LOW_CPU@@",
+            "memory": "16Mi"
+          }
+        },
+        "args": [
+          "hold"
+        ],
+        "readinessProbe": {
+          "httpGet": {
+            "path": "/health",
+            "port": 8080
+          },
+          "initialDelaySeconds": 1,
+          "periodSeconds": 2
+        }
+      }
+    ],
+    "priorityClassName": "@@NS@@-low",
+    "securityContext": {
+      "runAsUser": 65534,
+      "runAsGroup": 65534
+    },
+    "schedulerName": "rv-scheduler"
+  }
+}

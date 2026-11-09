@@ -1,0 +1,13 @@
+{
+  "goCompiler": "go1.25.3 windows/amd64",
+  "sourceLanguageVersion": "go1.21",
+  "unitTests": "passed: 7 tests; all Go packages build",
+  "staticAnalysis": "go vet -stdmethods=false ./... passed; upstream Seek convention is not io.Seeker",
+  "controllerIntegration": "passed with unmodified release scenario.query, metric_sample and Scenarios.step; source timestamps, duplicate observations, fresh observations and failed target handled",
+  "helm": "v3.16.4 lint and template passed; rendered ConfigMap JSON, Deployment image/command/probe/volumes and Service port verified",
+  "binary": "ELF64 Linux RISC-V; no PT_INTERP, CGO disabled",
+  "oci": "layout/index/manifest/config/platform/tag and SHA256 of every blob verified",
+  "riscvHardware": "not run",
+  "clusterDeployment": "not run",
+  "thirdPartyAcceptanceTest": "not run"
+}

@@ -1,0 +1,577 @@
+{
+  "scope": "容器化管理交付版的目标功能程序源码，包含项目安装部署、迁移、管理、扩缩容和监控程序，以及实际复用的第三方监控源码。",
+  "platformBoundary": "Kubernetes、containerd、runc、CRIU、Open MPI、MPI Operator 等作为外部基础环境另列。Pod 内存采集、扩缩容决策和本次六项调度用例使用项目实现。",
+  "method": "按相同口径统计有效代码行，去空行、注释及Python文档字符串；去重；排除测试、验证、样例、文档、二进制、统计工具；声明式配置单列不计入本程序源码比例。",
+  "ownership": "既有安装脚本和本项目组件均按项目自研归属统计，不再用版本新增/修改量代替自研量。third_party中的裁剪和适配代码全部保守计入第三方复用。",
+  "deploymentStatus": "本地编译、单元测试及 HTTP 联调完成。RISC-V Kubernetes 实机验收待执行。",
+  "failureComponent": "失效扰动抑制组件尚未集成，本次不统计。",
+  "summary": {
+    "project": {
+      "files": 65,
+      "physicalLines": 7181,
+      "effectiveLines": 6387
+    },
+    "third-party": {
+      "files": 14,
+      "physicalLines": 4217,
+      "effectiveLines": 3174
+    }
+  },
+  "totalEffectiveLines": 9561,
+  "projectRatioPercent": 66.8026,
+  "files": [
+    {
+      "path": "monitor-core/cmd/rv-monitor-core/main.go",
+      "classification": "project",
+      "physicalLines": 63,
+      "effectiveLines": 59,
+      "sha256": "bbd2b528a2d18dff970d84dd5aadce50b50aeaadb5ea31891aafc6c358f2f810"
+    },
+    {
+      "path": "monitor-core/integration/create_profile.py",
+      "classification": "project",
+      "physicalLines": 72,
+      "effectiveLines": 65,
+      "sha256": "fcad41cc1bf29e41de80d39813ade78030b829e4b88fc8ee915c5134d3a3f7dd"
+    },
+    {
+      "path": "monitor-core/internal/monitor/parse.go",
+      "classification": "project",
+      "physicalLines": 118,
+      "effectiveLines": 108,
+      "sha256": "cd9c8092f9a0072668231f50156b0fcdb6f5ecbe1b234ed4768c9fc8549d2cb6"
+    },
+    {
+      "path": "monitor-core/internal/monitor/query.go",
+      "classification": "project",
+      "physicalLines": 136,
+      "effectiveLines": 128,
+      "sha256": "5d9d8ece8e06823228d1d415bcd7bfa90e5f285109d264d1e0150a148cd754d7"
+    },
+    {
+      "path": "monitor-core/internal/monitor/server.go",
+      "classification": "project",
+      "physicalLines": 264,
+      "effectiveLines": 252,
+      "sha256": "b3d4785171958604008132a4f1f51456893c4bdb2e3a5147643d47b36b701ad8"
+    },
+    {
+      "path": "monitor-core/internal/monitor/store.go",
+      "classification": "project",
+      "physicalLines": 151,
+      "effectiveLines": 139,
+      "sha256": "ec111a2f420570abd0b1d6e1611f33ef04448be5df0e7a7c1e3c5059c711b855"
+    },
+    {
+      "path": "monitor-core/third_party/chunkenc/bstream.go",
+      "classification": "third-party",
+      "physicalLines": 448,
+      "effectiveLines": 294,
+      "sha256": "0d09b239cbafb2273cb42a7c605bca7d44603c10cbe2df982c44298814c3e761"
+    },
+    {
+      "path": "monitor-core/third_party/chunkenc/interface.go",
+      "classification": "third-party",
+      "physicalLines": 39,
+      "effectiveLines": 20,
+      "sha256": "73c138943644afbc3a131c00e7ed906b2a56f1d706a23f5cb67a6f5cfbf3cfc1"
+    },
+    {
+      "path": "monitor-core/third_party/chunkenc/xor.go",
+      "classification": "third-party",
+      "physicalLines": 500,
+      "effectiveLines": 350,
+      "sha256": "b087b0340725f9b93b04fb03524631ebbe254554523c02636c03f26be61a6cd6"
+    },
+    {
+      "path": "monitor-core/third_party/exemplar/exemplar.go",
+      "classification": "third-party",
+      "physicalLines": 30,
+      "effectiveLines": 9,
+      "sha256": "2c531ea45c9898de0d0281480e49390df168a60c882766575e443f81a1bbc4c5"
+    },
+    {
+      "path": "monitor-core/third_party/labels/builder.go",
+      "classification": "third-party",
+      "physicalLines": 89,
+      "effectiveLines": 42,
+      "sha256": "2de87fbbaa98f28c2677f28d09cc4751404bd918c7abbae8520c3c478fef0b36"
+    },
+    {
+      "path": "monitor-core/third_party/labels/float.go",
+      "classification": "third-party",
+      "physicalLines": 60,
+      "effectiveLines": 37,
+      "sha256": "fb5a202ed1969cab61f917958f4ae143c3bd8c8bab1d5187c62177c3ed2076d4"
+    },
+    {
+      "path": "monitor-core/third_party/model/metadata.go",
+      "classification": "third-party",
+      "physicalLines": 33,
+      "effectiveLines": 16,
+      "sha256": "57b56aa24cfac107448b11519d616c28098a0b645e8b7b7a0854fe152d47579a"
+    },
+    {
+      "path": "monitor-core/third_party/textparse/interface.go",
+      "classification": "third-party",
+      "physicalLines": 46,
+      "effectiveLines": 27,
+      "sha256": "0231ad24b3605a3b63323da1429263bc12c2de9c1d158a828048059f8ea64c67"
+    },
+    {
+      "path": "monitor-core/third_party/textparse/openmetricslex.l.go",
+      "classification": "third-party",
+      "physicalLines": 904,
+      "effectiveLines": 781,
+      "sha256": "4ee99305f7806599724bd9b889405e2393dcc1c54a60c4ae29106b2f306d9aba"
+    },
+    {
+      "path": "monitor-core/third_party/textparse/openmetricsparse.go",
+      "classification": "third-party",
+      "physicalLines": 756,
+      "effectiveLines": 554,
+      "sha256": "4b48ee5f4de21a1e63da847099505a6ea5623c021063b9d3950334784c3ac4b0"
+    },
+    {
+      "path": "monitor-core/third_party/textparse/promlex.l.go",
+      "classification": "third-party",
+      "physicalLines": 656,
+      "effectiveLines": 565,
+      "sha256": "2bed0bc760b627c3fab4905067d863e6ed4a97034ea21bdb774ec83e83545574"
+    },
+    {
+      "path": "monitor-core/third_party/textparse/promparse.go",
+      "classification": "third-party",
+      "physicalLines": 511,
+      "effectiveLines": 388,
+      "sha256": "720c61c550c607f0c7cfbc31d5bf6d039cc1955f3c9a0b661a34d750332d8068"
+    },
+    {
+      "path": "monitor-core/third_party/value/value.go",
+      "classification": "third-party",
+      "physicalLines": 34,
+      "effectiveLines": 11,
+      "sha256": "c1928bc9c9f4d520aedfc244b2b322d786c47b51ad0f519a68ef4078508c9915"
+    },
+    {
+      "path": "monitor-core/third_party/xxhash/sum64.go",
+      "classification": "third-party",
+      "physicalLines": 111,
+      "effectiveLines": 80,
+      "sha256": "a3379569790193440ab792706979f81826b66013db1d3975c202212797234faa"
+    },
+    {
+      "path": "monitor-core/tools/package_oci.py",
+      "classification": "project",
+      "physicalLines": 69,
+      "effectiveLines": 65,
+      "sha256": "52660d75af41c8bfe4f279823d459b150f926e83172d53cdd0235cb3d98c5d5c"
+    },
+    {
+      "path": "platform/k8s_master-1.sh",
+      "classification": "project",
+      "physicalLines": 810,
+      "effectiveLines": 646,
+      "sha256": "54c2d722760cefd4952683d1600d677b1b8ab1f3dbb130a7ef279388d1cb07d7"
+    },
+    {
+      "path": "platform/k8s_master.sh",
+      "classification": "project",
+      "physicalLines": 733,
+      "effectiveLines": 600,
+      "sha256": "3b9ed48da0b0898ef6292b7817f50ea2dfc7a5892821faec76ec13fb1547bf5d"
+    },
+    {
+      "path": "platform/k8s_master_other_components.sh",
+      "classification": "project",
+      "physicalLines": 243,
+      "effectiveLines": 228,
+      "sha256": "1c4fd9773f53724fa5d8d8b7fccc2de0496501df4954cbf4c7790f40475454dc"
+    },
+    {
+      "path": "platform/k8s_node.sh",
+      "classification": "project",
+      "physicalLines": 199,
+      "effectiveLines": 141,
+      "sha256": "bc4b2b57cdfe2eeafbde0d9ea33d4d707ac4172d49b6f67b1715739693a44f2e"
+    },
+    {
+      "path": "platform/platform/check.py",
+      "classification": "project",
+      "physicalLines": 26,
+      "effectiveLines": 23,
+      "sha256": "3e6de83d9ed4c00273987ffb269589c396fef47aaebef5dbc83b45a5fececa46"
+    },
+    {
+      "path": "platform/platform/communication/build.sh",
+      "classification": "project",
+      "physicalLines": 8,
+      "effectiveLines": 7,
+      "sha256": "25bcb17f7bc000a82e3ba63151a4dd499d593bc3643840079e291f9185abb159"
+    },
+    {
+      "path": "platform/platform/communication/job.py",
+      "classification": "project",
+      "physicalLines": 81,
+      "effectiveLines": 73,
+      "sha256": "4cf61f7253cea30805ffa292a0c61effcdadeaf920737347f9fd72b44dffc81d"
+    },
+    {
+      "path": "platform/platform/communication/launch.py",
+      "classification": "project",
+      "physicalLines": 14,
+      "effectiveLines": 10,
+      "sha256": "43115fa8e499ce51aa9a4b7d8e343438ae9ada517a53a750e2b0cdbf31111d6d"
+    },
+    {
+      "path": "platform/platform/communication/rebuild.sh",
+      "classification": "project",
+      "physicalLines": 15,
+      "effectiveLines": 13,
+      "sha256": "a2325251fbfa651a2b108505d1e3fa7fd9068093d4de66b177f3c9c114caa90e"
+    },
+    {
+      "path": "platform/platform/communication/rv_collective.c",
+      "classification": "project",
+      "physicalLines": 109,
+      "effectiveLines": 107,
+      "sha256": "759b9f87a115314568ed75f55e86187599463b910b37dba913c6b54471a449a8"
+    },
+    {
+      "path": "platform/platform/communication/rv_collective.h",
+      "classification": "project",
+      "physicalLines": 17,
+      "effectiveLines": 16,
+      "sha256": "05a16431c2be214faec89341f52a704b6fd66d4a0ec84b929b22706762d6ff51"
+    },
+    {
+      "path": "platform/platform/configure.py",
+      "classification": "project",
+      "physicalLines": 38,
+      "effectiveLines": 34,
+      "sha256": "b44e84dc404ab3f72af675412aca3d4704c69cba093bbdc5e5332124c5d25d86"
+    },
+    {
+      "path": "platform/platform/control/common.py",
+      "classification": "project",
+      "physicalLines": 136,
+      "effectiveLines": 119,
+      "sha256": "df50dbc74f18039e5dcf13b241060c1b702d0aeb2f826c70af3fd884e447cbcb"
+    },
+    {
+      "path": "platform/platform/control/controller.py",
+      "classification": "project",
+      "physicalLines": 51,
+      "effectiveLines": 46,
+      "sha256": "6aa2af630abf5561ea5c597da008c111a0c9eea431da84759c8165b3b29f3d4b"
+    },
+    {
+      "path": "platform/platform/control/credentials.py",
+      "classification": "project",
+      "physicalLines": 27,
+      "effectiveLines": 23,
+      "sha256": "b4040f8ca6353fc13144189265623898ae26a69fac7e1879d80a7470391e91c7"
+    },
+    {
+      "path": "platform/platform/control/install.sh",
+      "classification": "project",
+      "physicalLines": 50,
+      "effectiveLines": 48,
+      "sha256": "6b5b901158f2b949a9728ce9ae5e2a09b5760511322965e32dc1f483ea9e1641"
+    },
+    {
+      "path": "platform/platform/control/manifests.py",
+      "classification": "project",
+      "physicalLines": 40,
+      "effectiveLines": 38,
+      "sha256": "2508af81b4567bdd8ea63e80ad2c8e3da2b26c3f7ec600ca1aafb520f65c2f84"
+    },
+    {
+      "path": "platform/platform/control/network.py",
+      "classification": "project",
+      "physicalLines": 88,
+      "effectiveLines": 83,
+      "sha256": "460311b6c3a266286437e149758fb60db8e53ccf150759ab4109483cfecd5c91"
+    },
+    {
+      "path": "platform/platform/control/pod_metrics.py",
+      "classification": "project",
+      "physicalLines": 57,
+      "effectiveLines": 47,
+      "sha256": "bf7e096ae6751dd8ecda02c3438fc5ea127e37493cecb19ef64683a2e60df477"
+    },
+    {
+      "path": "platform/platform/control/resource.py",
+      "classification": "project",
+      "physicalLines": 105,
+      "effectiveLines": 93,
+      "sha256": "160842e7115056f7d85d9dc56ec9d4501f474dbd2f42243af634a337e048481a"
+    },
+    {
+      "path": "platform/platform/control/scenario.py",
+      "classification": "project",
+      "physicalLines": 131,
+      "effectiveLines": 122,
+      "sha256": "1c050bc97504c609000cfa72a609c78451d4c202a908c0f7fd4dab0a268baf62"
+    },
+    {
+      "path": "platform/platform/control/scheduler.py",
+      "classification": "project",
+      "physicalLines": 279,
+      "effectiveLines": 242,
+      "sha256": "1ea8dd4aaec359c88a97c953f3b7e81d1a55af75c9137941beae9ba0f4f0a4e0"
+    },
+    {
+      "path": "platform/platform/device-plugin/install.sh",
+      "classification": "project",
+      "physicalLines": 30,
+      "effectiveLines": 28,
+      "sha256": "89f230eacb81851680986d2252abcc613bad1ab0a898636048af242f725031e7"
+    },
+    {
+      "path": "platform/platform/device-plugin/main.go",
+      "classification": "project",
+      "physicalLines": 188,
+      "effectiveLines": 182,
+      "sha256": "3d3cc574483bc140fb0692b2cbbb090575930ac1caae07eaadca82b3c2d9f915"
+    },
+    {
+      "path": "platform/platform/ecosystem/build-source.sh",
+      "classification": "project",
+      "physicalLines": 6,
+      "effectiveLines": 5,
+      "sha256": "01f01395107f99d85f3b23e3061e9bbc008f5ad0d10db7977e7fa2f8f9e05c88"
+    },
+    {
+      "path": "platform/platform/ecosystem/install.py",
+      "classification": "project",
+      "physicalLines": 77,
+      "effectiveLines": 67,
+      "sha256": "23a318d682bc7bd6b8bd3d3f1886bb410540f89002eb87ef686f215ddfea1eb2"
+    },
+    {
+      "path": "platform/platform/ecosystem/remove-grafana.sh",
+      "classification": "project",
+      "physicalLines": 13,
+      "effectiveLines": 11,
+      "sha256": "19cc6a5a945df0c6609bb1f380de64ae3e36a65f0040e114db0fb29f52878214"
+    },
+    {
+      "path": "platform/platform/ecosystem/verify.py",
+      "classification": "project",
+      "physicalLines": 77,
+      "effectiveLines": 64,
+      "sha256": "dc1b47fa7709caa15e876cb49f4570187c46b1014cf6ea459b98df0c7f9361a0"
+    },
+    {
+      "path": "platform/platform/install.sh",
+      "classification": "project",
+      "physicalLines": 13,
+      "effectiveLines": 12,
+      "sha256": "10d64b9d7e3741362d221257852412615732623b33596841850dffd8cbd9641c"
+    },
+    {
+      "path": "platform/platform/integrate.sh",
+      "classification": "project",
+      "physicalLines": 11,
+      "effectiveLines": 8,
+      "sha256": "4bf32d1cea07aeef1c7a872e188b45ac70fcf5447eca91dd6c23a1fb5be22779"
+    },
+    {
+      "path": "platform/platform/migration/apply-update.py",
+      "classification": "project",
+      "physicalLines": 34,
+      "effectiveLines": 30,
+      "sha256": "583f3d8f222913b85ffc2502c33b3073884c98befdef11097a83bc50ddfe9d6a"
+    },
+    {
+      "path": "platform/platform/migration/configure_kubelet.py",
+      "classification": "project",
+      "physicalLines": 32,
+      "effectiveLines": 26,
+      "sha256": "71a71930cee15b7bfab755e7bcf098a1ff2616241824b29e41a475c8316eba2d"
+    },
+    {
+      "path": "platform/platform/migration/controller.py",
+      "classification": "project",
+      "physicalLines": 411,
+      "effectiveLines": 354,
+      "sha256": "6cf371bbcf6d61b397b70e51cb661c4e469023665764b73d00a8952716f6e877"
+    },
+    {
+      "path": "platform/platform/migration/offline-criu/install.py",
+      "classification": "project",
+      "physicalLines": 152,
+      "effectiveLines": 134,
+      "sha256": "3fb2eb91316f87f11d7143f1ff05643c8c31d6013fa83185665c3bfaa904e10e"
+    },
+    {
+      "path": "platform/platform/migration/offline-runtime/build.sh",
+      "classification": "project",
+      "physicalLines": 15,
+      "effectiveLines": 13,
+      "sha256": "b9bd6771b1f341316ea5f183b9c36a2c2e6c4fcec7e54b0a889249336b95ae0c"
+    },
+    {
+      "path": "platform/platform/migration/offline-runtime/install-node.sh",
+      "classification": "project",
+      "physicalLines": 98,
+      "effectiveLines": 93,
+      "sha256": "8f87ea16b76e6b324208850b611326b0d80a8956d792a37e327a40653a7a06ae"
+    },
+    {
+      "path": "platform/platform/migration/offline-runtime/patch_containerd.py",
+      "classification": "project",
+      "physicalLines": 23,
+      "effectiveLines": 20,
+      "sha256": "7822807c7a2bf8e58051b40d9b45f8ee9f1b353e3fa41fbe34fe8b78c725380d"
+    },
+    {
+      "path": "platform/platform/migration/offline-runtime/rv_restore_image_cache.go",
+      "classification": "project",
+      "physicalLines": 53,
+      "effectiveLines": 47,
+      "sha256": "91f834cbf076921c522f86a06821f4c3730ebe2c7b63e16df67f03b900434fe3"
+    },
+    {
+      "path": "platform/platform/migration/retry.py",
+      "classification": "project",
+      "physicalLines": 26,
+      "effectiveLines": 23,
+      "sha256": "20ceb8089a2d1f054f3b6acdb85ebfead3761b32b065aa460b652559fcab2532"
+    },
+    {
+      "path": "platform/platform/migration/runtime/local.go",
+      "classification": "project",
+      "physicalLines": 130,
+      "effectiveLines": 121,
+      "sha256": "1bc3dbaf6b871ff0ddebb7e0e1115097a44b52e6067ae8bdfcc297740f726173"
+    },
+    {
+      "path": "platform/platform/migration/runtime/main.go",
+      "classification": "project",
+      "physicalLines": 832,
+      "effectiveLines": 813,
+      "sha256": "a92d2dc42d4dc37f8897ba2f101bb8b77feadf1cc9402c3fcd7849538c861ca7"
+    },
+    {
+      "path": "platform/platform/migration/runtime-upgrade/check_config.py",
+      "classification": "project",
+      "physicalLines": 96,
+      "effectiveLines": 82,
+      "sha256": "010629a0e55baf952f69b1dac417953c9968a7b2263e77997284a8aad6628550"
+    },
+    {
+      "path": "platform/platform/migration/runtime-upgrade/prepare.sh",
+      "classification": "project",
+      "physicalLines": 73,
+      "effectiveLines": 69,
+      "sha256": "defaefeb1da933dee691a74c225801abe8153bf43edd2bb0602b99d7d0b80849"
+    },
+    {
+      "path": "platform/platform/migration/runtime-upgrade/switch.sh",
+      "classification": "project",
+      "physicalLines": 71,
+      "effectiveLines": 69,
+      "sha256": "54f8008f778a61dd429fc5a4e658cac021be6d981438079240b1f9bbc1d58561"
+    },
+    {
+      "path": "platform/platform/migration/scripts/build-containerd.sh",
+      "classification": "project",
+      "physicalLines": 39,
+      "effectiveLines": 37,
+      "sha256": "023338e2cda19e5c2cd388a00e0da73ecf0ea18167fcb94bd668f62d122a6a17"
+    },
+    {
+      "path": "platform/platform/migration/scripts/build.sh",
+      "classification": "project",
+      "physicalLines": 6,
+      "effectiveLines": 5,
+      "sha256": "21c85ec7f6ecc29c4263ac055a36cc2c113b493bace764d9b7a587cd536c1d83"
+    },
+    {
+      "path": "platform/platform/migration/scripts/disable-node.sh",
+      "classification": "project",
+      "physicalLines": 10,
+      "effectiveLines": 9,
+      "sha256": "3c2f70749be85983ed4aae0ae49f3db4d9c33dbc2c7c1372e48ac90399a9fca9"
+    },
+    {
+      "path": "platform/platform/migration/scripts/enable-sudo-helper.sh",
+      "classification": "project",
+      "physicalLines": 21,
+      "effectiveLines": 19,
+      "sha256": "ed7796ae2daf552b0930e8bc4f3be59dd0a57079bd8cf2abeca15ac8e2876952"
+    },
+    {
+      "path": "platform/platform/migration/scripts/install-controller.sh",
+      "classification": "project",
+      "physicalLines": 55,
+      "effectiveLines": 54,
+      "sha256": "6af87b8e59e26392a19533479fc2894c30dafb00a67a2517cc5c5a9ad2a90ef1"
+    },
+    {
+      "path": "platform/platform/migration/scripts/install-node.sh",
+      "classification": "project",
+      "physicalLines": 54,
+      "effectiveLines": 51,
+      "sha256": "9ce5e18969cb7a725fd90f604cb91767ceba041bad28e52a6d1a58e4e87619e6"
+    },
+    {
+      "path": "platform/platform/migration/scripts/rebuild.sh",
+      "classification": "project",
+      "physicalLines": 13,
+      "effectiveLines": 12,
+      "sha256": "6de5eea478b065df1c733b9c922ec7bd626dec0e50836ed423022fd25152fb7b"
+    },
+    {
+      "path": "platform/platform/node/agent.py",
+      "classification": "project",
+      "physicalLines": 106,
+      "effectiveLines": 92,
+      "sha256": "11a1f0b1288f07fb91eebcf3ad018339ba9e5fae7186ad0d573d95e7658993ef"
+    },
+    {
+      "path": "platform/platform/node/install.sh",
+      "classification": "project",
+      "physicalLines": 27,
+      "effectiveLines": 25,
+      "sha256": "9f8350ce1818565144dd10bff8004b8a1126e31a46f731faac422b92e65baa72"
+    },
+    {
+      "path": "platform/platform/scripts/export-communication.sh",
+      "classification": "project",
+      "physicalLines": 32,
+      "effectiveLines": 30,
+      "sha256": "ddd0e036123c18a6d7c08cae224f370482cb4a638af36f786ba994b44003b14c"
+    },
+    {
+      "path": "platform/platform/scripts/go-env.sh",
+      "classification": "project",
+      "physicalLines": 15,
+      "effectiveLines": 12,
+      "sha256": "447b48a34f856e780b565e50035e6d3a88d5c242c2fa7ae955464b25012e37a7"
+    },
+    {
+      "path": "platform/platform/scripts/install-go.sh",
+      "classification": "project",
+      "physicalLines": 29,
+      "effectiveLines": 26,
+      "sha256": "8dda86b6463936c0c3acd8b6fb49dcfeef519a2995af18bacf20101a33d52607"
+    },
+    {
+      "path": "platform/platform/scripts/issue-node-credentials.sh",
+      "classification": "project",
+      "physicalLines": 50,
+      "effectiveLines": 48,
+      "sha256": "af7df6524c0c902e367e22097f48053b1cfcc19132ddee0abb84ce892224d377"
+    },
+    {
+      "path": "platform/platform/workload/main.go",
+      "classification": "project",
+      "physicalLines": 133,
+      "effectiveLines": 121,
+      "sha256": "b0409823f13ec7b07ec86cb38c479539b8dcf098f9b4cf4a3464b6710a6a1b95"
+    }
+  ]
+}

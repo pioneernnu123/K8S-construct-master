@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rv-prometheus-config
+data:
+  monitor.json: |
+    {
+      "targets": {{ .Values.nodeTargets | toJson }},
+      "scrapeInterval": {{ .Values.scrapeInterval | quote }},
+      "scrapeTimeout": {{ .Values.scrapeTimeout | quote }},
+      "retention": {{ .Values.retention | quote }},
+      "lookback": {{ .Values.lookback | quote }},
+      "maxSeries": 10000,
+      "maxSamplesPerScrape": 1000,
+      "maxBodyBytes": 2097152
+    }

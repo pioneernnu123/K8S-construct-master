@@ -1,0 +1,10 @@
+{
+  "targets": ["192.168.1.101:9108", "192.168.1.102:9108"],
+  "scrapeInterval": "10s",
+  "scrapeTimeout": "5s",
+  "retention": "15m",
+  "lookback": "45s",
+  "maxSeries": 10000,
+  "maxSamplesPerScrape": 1000,
+  "maxBodyBytes": 2097152
+}

@@ -1,0 +1,9 @@
+{
+  "namespace": "rv-monitoring",
+  "prometheusImage": "localhost/rv-monitor-core:0.1.0",
+  "nodeTargets": [
+    "192.168.50.71:9108",
+    "192.168.50.72:9108"
+  ],
+  "retention": "15m"
+}
