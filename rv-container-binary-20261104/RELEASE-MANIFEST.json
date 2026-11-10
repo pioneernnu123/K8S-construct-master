@@ -1,0 +1,1856 @@
+{
+  "release": "20261104",
+  "scope": "container management formal cases 3-2-0001 through 0013",
+  "target": {
+    "os": "Linux",
+    "architecture": "riscv64",
+    "baseline": "openEuler 24.03 LTS / Kubernetes 1.29.1"
+  },
+  "sourceStatistics": {
+    "summary": {
+      "project": {
+        "files": 65,
+        "physicalLines": 7181,
+        "effectiveLines": 6387
+      },
+      "third-party": {
+        "files": 14,
+        "physicalLines": 4217,
+        "effectiveLines": 3174
+      }
+    },
+    "totalEffectiveLines": 9561,
+    "projectRatioPercent": 66.8026
+  },
+  "binaries": [
+    {
+      "path": "source/monitor-core/bin/rv-monitor-core-linux-riscv64",
+      "bytes": 6553784,
+      "sha256": "ee2fb53a70b98e482978459e19ab932091d14b8df2787c020b2dbb40b3c5c737",
+      "architecture": "riscv64",
+      "format": "ELF64"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/device-plugin/bin/rv-device-plugin",
+      "bytes": 10551480,
+      "sha256": "9e7bdc99d373c6da57ca2f99ee727e87f78ce133575f69013c20131205d133b1",
+      "architecture": "riscv64",
+      "format": "ELF64"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/bin/rv-migrate-runtime",
+      "bytes": 15728640,
+      "sha256": "179a48a74f4412268e787c054f97033c113680f125fd23c211fb042f7f4df407",
+      "architecture": "riscv64",
+      "format": "ELF64"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/containerd",
+      "bytes": 36176032,
+      "sha256": "87f0efef9c714465b3b51b289e546e70063bedd81114e9eda85868b58876335c",
+      "architecture": "riscv64",
+      "format": "ELF64"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/containerd-shim-runc-v2",
+      "bytes": 13172896,
+      "sha256": "08b133d82fb49bc57bc5b530328f2b8f84b677d18ce6e4b88667ad7bdc9be8bf",
+      "architecture": "riscv64",
+      "format": "ELF64"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/ctr",
+      "bytes": 20054176,
+      "sha256": "e55c15a4a8b6624fe0c4a256c83002e0b1d4341e1cc3e41f255d286d8b0ec5a4",
+      "architecture": "riscv64",
+      "format": "ELF64"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/bin/containerd",
+      "bytes": 37355672,
+      "sha256": "3958a4f7ccae237da44443b7debe67f4ad698183c1758dfb19fb971488c886c0",
+      "architecture": "riscv64",
+      "format": "ELF64"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/workload/bin/rv-test-workload",
+      "bytes": 5570744,
+      "sha256": "500e2ff77d6601831200f09660ac321b501cf5e11a130000ccabed528d930eb1",
+      "architecture": "riscv64",
+      "format": "ELF64"
+    }
+  ],
+  "images": [
+    {
+      "file": "offline/communication/rv-communication-0.2.0.tar.gz",
+      "manifestDigest": "sha256:8bdc6843680f510de914c73a5ade3ad97f2f13999036dd0c532bc0249c9141d9",
+      "architecture": "riscv64",
+      "os": "linux",
+      "layers": [
+        {
+          "digest": "sha256:923d5a3e6821ee88e83ad44b818c0294892d4bc8258e7f359ca8c3f615628456",
+          "bytes": 26975175,
+          "verified": true
+        },
+        {
+          "digest": "sha256:97c5d779d510ba415d170b62de3e13e5d076935f584762fe301be130dff2faa2",
+          "bytes": 191309412,
+          "verified": true
+        },
+        {
+          "digest": "sha256:98efef76b1190984c0909c647e63212deee4c8a0b2a91d796ae0b7af94c8294a",
+          "bytes": 70374996,
+          "verified": true
+        },
+        {
+          "digest": "sha256:2e5ccd98803e2b0f1d031e3475f74d6e91935535d66e4a7b48b16c58f31508a8",
+          "bytes": 93158,
+          "verified": true
+        },
+        {
+          "digest": "sha256:15ab7caa1aa400b6792c8881b623193e5d6fc8bfcf6fbbf2ea42fd92540b422e",
+          "bytes": 518612992,
+          "verified": true
+        },
+        {
+          "digest": "sha256:f2060a5b0a65d823c07f133a2d3bd0c2f2373a086fd0eef5dc21e0bb52593e9a",
+          "bytes": 62464,
+          "verified": true
+        },
+        {
+          "digest": "sha256:dc510101890d13ba6e41800d9de3c9b0e318b714b3735e2bde0a26202d277e13",
+          "bytes": 101376,
+          "verified": true
+        }
+      ],
+      "imageAnnotations": {
+        "io.containerd.image.name": "localhost/rv-communication:0.2.0",
+        "org.opencontainers.image.ref.name": "0.2.0"
+      },
+      "configDigest": "sha256:f662eb868fb97d08721bb9e3e68bc86db19fe5867d38134d83bd4cd5fce3e31c",
+      "mpiExecutableSha256": "0c27987eff2d8b9933705a6f03616a08604834f4d27e76d46f7a74b429912736",
+      "matchingSourceFiles": [
+        "benchmark.c",
+        "rv_collective.c",
+        "rv_collective.h",
+        "launch.py"
+      ],
+      "executionScope": "rv-bench runs inside this image with its matched MPI/libc runtime; not a host binary"
+    },
+    {
+      "file": "offline/monitoring/rv-monitor-core-0.1.0-linux-riscv64.oci.tar",
+      "manifestDigest": "sha256:c9fdcbd0f72528294e9fc305f56818b1e3db409e88559b78304bc41fb5ea04d0",
+      "architecture": "riscv64",
+      "os": "linux",
+      "layers": [
+        {
+          "digest": "sha256:7c260c9b36d0417b1f9110b16090e8c31fa8d58d74db4b97a3df022ef2a3ea9b",
+          "bytes": 6594560,
+          "verified": true
+        }
+      ],
+      "imageAnnotations": {
+        "org.opencontainers.image.ref.name": "0.1.0",
+        "io.containerd.image.name": "localhost/rv-monitor-core:0.1.0"
+      },
+      "configDigest": "sha256:135a6e3c43aeee6751aec8a02f0587051911618fa41af2e9cd0cbb4c8e16ba42",
+      "executableSha256": "ee2fb53a70b98e482978459e19ab932091d14b8df2787c020b2dbb40b3c5c737"
+    },
+    {
+      "file": "offline/workload/rv-test-workload-20261104-linux-riscv64.oci.tar",
+      "manifestDigest": "sha256:c4701e255963754e9753af14ea78ffa017a8e22ef328fb1e644fa8cf0793e8d2",
+      "architecture": "riscv64",
+      "os": "linux",
+      "layers": [
+        {
+          "digest": "sha256:d07f31c992d003c868c27730ffbe29abb663517523af182388356609e05ce94c",
+          "bytes": 5580800,
+          "verified": true
+        }
+      ],
+      "imageAnnotations": {
+        "org.opencontainers.image.ref.name": "20261104",
+        "io.containerd.image.name": "localhost/rv-test-workload:20261104"
+      },
+      "configDigest": "sha256:0eaf43eec17cf9c9432a30f9c3b88bac525dc4aa836d9e93bd52a3f93121ec83",
+      "executableSha256": "500e2ff77d6601831200f09660ac321b501cf5e11a130000ccabed528d930eb1"
+    }
+  ],
+  "files": [
+    {
+      "path": "CONTRIBUTION.example.json",
+      "bytes": 227,
+      "sha256": "e63d7da51fabcbbf602f2c8f3835b87798434e3555a0a271677e7b4af104685e"
+    },
+    {
+      "path": "COVERAGE.txt",
+      "bytes": 2436,
+      "sha256": "71112569cfb10e2de5ee2497fc37b72e81066bd4a43d3e1221df25d24cc36660"
+    },
+    {
+      "path": "IMAGE-CONTENTS.json",
+      "bytes": 3839,
+      "sha256": "5017f4fe10c329c7e426158beb51e8033d0da78d1cd5660e2200a4301a2e6c66"
+    },
+    {
+      "path": "offline/communication/IMAGE-AUDIT.json",
+      "bytes": 1287,
+      "sha256": "8d4b23bd77158af29afd987fe822e2a8c64ac7e81645b07b81aad02b1c7ef9e9"
+    },
+    {
+      "path": "offline/communication/rv-communication-0.2.0.tar.gz",
+      "bytes": 468280899,
+      "sha256": "b2e6b7892877f73db574d97cfeae6e705f3a4da2c8685e8f68e48b20aaeac78d"
+    },
+    {
+      "path": "offline/communication/SHA256SUMS",
+      "bytes": 97,
+      "sha256": "47bdca16c0269737352948a39b1a7d6c71da0998d44f23669a4eaedd3a8b3450"
+    },
+    {
+      "path": "offline/containerd-upgrade/check_config.py",
+      "bytes": 4220,
+      "sha256": "010629a0e55baf952f69b1dac417953c9968a7b2263e77997284a8aad6628550"
+    },
+    {
+      "path": "offline/containerd-upgrade/containerd-static-2.0.13-linux-riscv64.tar.gz",
+      "bytes": 29916740,
+      "sha256": "7767d4b8ecd96f11613679980fcbacb96eebb4f47028b73bae64ebdc74b85a4b"
+    },
+    {
+      "path": "offline/containerd-upgrade/containerd-static-2.0.13-linux-riscv64.tar.gz.sha256sum",
+      "bytes": 112,
+      "sha256": "1996b95df19988c7d1f6c3fc2585b15a2ddb38c08f8926921dc48da364717951"
+    },
+    {
+      "path": "offline/containerd-upgrade/LICENSE.containerd",
+      "bytes": 10765,
+      "sha256": "4bbe3b885e8cd1907ab4cf9a41e862e74e24b5422297a4f2fe524e6a30ada2b4"
+    },
+    {
+      "path": "offline/containerd-upgrade/prepare.sh",
+      "bytes": 4966,
+      "sha256": "defaefeb1da933dee691a74c225801abe8153bf43edd2bb0602b99d7d0b80849"
+    },
+    {
+      "path": "offline/containerd-upgrade/PROVENANCE.json",
+      "bytes": 1231,
+      "sha256": "82637eeacaa550d526cd54b2a4446c85f8b62c3708ee3fd4c3de953a9d68e59a"
+    },
+    {
+      "path": "offline/containerd-upgrade/README.md",
+      "bytes": 9288,
+      "sha256": "9f2fa3422339ec884cff8b3ef191a4615a3b50993a5ce6234b0e92755fcd5c1e"
+    },
+    {
+      "path": "offline/containerd-upgrade/SHA256SUMS",
+      "bytes": 793,
+      "sha256": "7a09d4021750491eac3733ab9fcdfff11b0d399227368047bd9fa44e8b9fe1ac"
+    },
+    {
+      "path": "offline/containerd-upgrade/switch.sh",
+      "bytes": 4240,
+      "sha256": "54f8008f778a61dd429fc5a4e658cac021be6d981438079240b1f9bbc1d58561"
+    },
+    {
+      "path": "offline/containerd-upgrade/test_config.py",
+      "bytes": 6259,
+      "sha256": "59634b590c664df65446b8680b1ac8e3f68a3042c325ecf65208efc256ae0ed0"
+    },
+    {
+      "path": "offline/criu/AUDIT.json",
+      "bytes": 1473,
+      "sha256": "20dbe783a86613135de0be95f721bbf7b7d5308b9d57911c0c14d791873611cd"
+    },
+    {
+      "path": "offline/criu/install.py",
+      "bytes": 7065,
+      "sha256": "3fb2eb91316f87f11d7143f1ff05643c8c31d6013fa83185665c3bfaa904e10e"
+    },
+    {
+      "path": "offline/criu/manifest.json",
+      "bytes": 131851,
+      "sha256": "77d5e15cd157542350016667ddb63d3886184b3c2b0f2c77aa2982598151b679"
+    },
+    {
+      "path": "offline/criu/PROVENANCE.json",
+      "bytes": 26274,
+      "sha256": "812c0f59eb89f4687f4749512b0877ffd292ac377e606ca6efc6513032f473b6"
+    },
+    {
+      "path": "offline/criu/README.md",
+      "bytes": 4636,
+      "sha256": "caa0aadb26a5b49c60030bf68a1fd57b6264eab6b349319249b07ca42b9e5dcf"
+    },
+    {
+      "path": "offline/criu/rpms/abseil-cpp-20230802.1-4.oe2403.riscv64.rpm",
+      "bytes": 495109,
+      "sha256": "51d8a3e92eab15e0c1676aac9363d2239e4949e715e0539c60a55d5584958626"
+    },
+    {
+      "path": "offline/criu/rpms/chkconfig-1.25-1.oe2403.riscv64.rpm",
+      "bytes": 172941,
+      "sha256": "971c1df183740adc9b08247466d2ecb82284ee6d678bdfbba983a790bab7d1f2"
+    },
+    {
+      "path": "offline/criu/rpms/criu-4.1-1.oe2509.riscv64.rpm",
+      "bytes": 545423,
+      "sha256": "b82a4924c7984e7881f3b77b0979df02c26ac64fa0ff1d617b58993fbcd251d5"
+    },
+    {
+      "path": "offline/criu/rpms/emacs-filesystem-29.1-3.oe2403.noarch.rpm",
+      "bytes": 7957,
+      "sha256": "7da569be8234d0935b160b9ae4d40d2daf8ff2593d94f834073212559af91a1b"
+    },
+    {
+      "path": "offline/criu/rpms/gmp-6.3.0-3.oe2403.riscv64.rpm",
+      "bytes": 271497,
+      "sha256": "be1bebd2cadda4ae5699677c9ea56888a7766b8933492540dc27e7c35fab7e15"
+    },
+    {
+      "path": "offline/criu/rpms/gnutls-3.8.2-4.oe2403.riscv64.rpm",
+      "bytes": 941057,
+      "sha256": "8a06dbd83e456bb909887b9d3c9bb25a9a750a5071d9df888389738a4b46b503"
+    },
+    {
+      "path": "offline/criu/rpms/iptables-libs-1.8.9-9.oe2403.riscv64.rpm",
+      "bytes": 241501,
+      "sha256": "cc403f079abd262688c6e28010475682747655295592e3e35a03755373852022"
+    },
+    {
+      "path": "offline/criu/rpms/jansson-2.14-4.oe2403.riscv64.rpm",
+      "bytes": 32445,
+      "sha256": "9fc42772a763e1798bc0b190b4208ff61ae9db69953b9bf4f9154394f9e04e5c"
+    },
+    {
+      "path": "offline/criu/rpms/libbsd-0.10.0-2.oe2403.riscv64.rpm",
+      "bytes": 106505,
+      "sha256": "0cae4c33ceb83029aee07ba0c2ad81c1c54693e4ebba7bff73054b2ecb48e467"
+    },
+    {
+      "path": "offline/criu/rpms/libedit-3.1-31.oe2403.riscv64.rpm",
+      "bytes": 88433,
+      "sha256": "1978ee226883886459d9daac379cd8886794f9c43428f5649759fb61c32e8424"
+    },
+    {
+      "path": "offline/criu/rpms/libffi-3.4.4-3.oe2403.riscv64.rpm",
+      "bytes": 26197,
+      "sha256": "6687c87ed1c449be94473cae96c121e8a2df21f393f00f3b80e251073504c1a8"
+    },
+    {
+      "path": "offline/criu/rpms/libgcc-12.3.1-31.oe2403.riscv64.rpm",
+      "bytes": 76833,
+      "sha256": "c5644b88e8d588222088ebea2c486d0a7091eb46b2baec8a2043033aebf748ce"
+    },
+    {
+      "path": "offline/criu/rpms/libidn2-2.3.4-1.oe2403.riscv64.rpm",
+      "bytes": 139017,
+      "sha256": "351afa2b4aca478585f959698178117265518a81d6cd25be7d13c7233de14c08"
+    },
+    {
+      "path": "offline/criu/rpms/libmnl-1.0.5-2.oe2403.riscv64.rpm",
+      "bytes": 26097,
+      "sha256": "6640268e0726e3852a5ea5aa4c3cba0f1f7dff66b5bf9aa2636a5d64aff165e6"
+    },
+    {
+      "path": "offline/criu/rpms/libnet-1.3-1.oe2403.riscv64.rpm",
+      "bytes": 47413,
+      "sha256": "22506b65e345ba72ec9a27f88102c4a51bb2e935ac251321479c5f5a982bbe94"
+    },
+    {
+      "path": "offline/criu/rpms/libnetfilter_conntrack-1.0.9-4.oe2403.riscv64.rpm",
+      "bytes": 53421,
+      "sha256": "3a2ea1293348e30e61a3ce215fb01ce33c03c4dbfce26598fb37cb098216d5e4"
+    },
+    {
+      "path": "offline/criu/rpms/libnfnetlink-1.0.2-2.oe2403.riscv64.rpm",
+      "bytes": 26629,
+      "sha256": "c106e43c15b44d8e32b6e4f2cc441e1a08074645315edcd53e704915e487daaa"
+    },
+    {
+      "path": "offline/criu/rpms/libnftnl-1.2.6-2.oe2403.riscv64.rpm",
+      "bytes": 77101,
+      "sha256": "264a0a0ba27ddf46eb7431b072fe79252ea30171f3b35ed9acf89dea23f13d1c"
+    },
+    {
+      "path": "offline/criu/rpms/libnl3-3.7.0-4.oe2403.riscv64.rpm",
+      "bytes": 399169,
+      "sha256": "57df85843a227a518346ae49fcd0c41fc73205bdab27155593bd39c10d63fc06"
+    },
+    {
+      "path": "offline/criu/rpms/libpcap-1.10.4-2.oe2403.riscv64.rpm",
+      "bytes": 115429,
+      "sha256": "d9e64f333e89b39cd653332fb1a2d269a8748dc9cc85212a36357117a07309a9"
+    },
+    {
+      "path": "offline/criu/rpms/libpng-1.6.40-1.oe2403.riscv64.rpm",
+      "bytes": 106937,
+      "sha256": "4f95ba31618ca41298ebdebac2f7dfa949fa8a5ba308cdd5dd8c3ba3c4db975f"
+    },
+    {
+      "path": "offline/criu/rpms/libselinux-3.5-3.oe2403.riscv64.rpm",
+      "bytes": 118949,
+      "sha256": "bed13ac05f5cae2af34b2f46353ade51a1f7ebf920abd7dd71284ea73a6376b9"
+    },
+    {
+      "path": "offline/criu/rpms/libsepol-3.5-3.oe2403.riscv64.rpm",
+      "bytes": 289773,
+      "sha256": "d12e24a7d480cd310f0c11b2d85c4cf4cf2d3e4b891940c7db89fd7d38d1a06c"
+    },
+    {
+      "path": "offline/criu/rpms/libstdc++-12.3.1-31.oe2403.riscv64.rpm",
+      "bytes": 702661,
+      "sha256": "cb302b851e0c7914b0c4522a402da6756e3868190c005529a92abfe390072530"
+    },
+    {
+      "path": "offline/criu/rpms/libtasn1-4.19.0-1.oe2403.riscv64.rpm",
+      "bytes": 82185,
+      "sha256": "92689ddd35cc1ffa418f93d322a5089fb96db7c61a6c48118b1a79b60ef8e4a3"
+    },
+    {
+      "path": "offline/criu/rpms/libunistring-1.1-2.oe2403.riscv64.rpm",
+      "bytes": 468957,
+      "sha256": "3f6eee9416365ea9bbc0ec14ea583f80c01d723b6773955cafd4554671732073"
+    },
+    {
+      "path": "offline/criu/rpms/libuuid-2.39.1-16.oe2403.riscv64.rpm",
+      "bytes": 30105,
+      "sha256": "485f160677dce4dbf9a7377411b97714df3f67abc83ec3bc917f42114e2558c4"
+    },
+    {
+      "path": "offline/criu/rpms/ncurses-base-6.4-8.oe2403.noarch.rpm",
+      "bytes": 56569,
+      "sha256": "59c3946916612b6f59b19dbac079fee76750c2665deb2047dbba6953796bee54"
+    },
+    {
+      "path": "offline/criu/rpms/ncurses-libs-6.4-8.oe2403.riscv64.rpm",
+      "bytes": 281733,
+      "sha256": "e609e9f066a3df8222372f20b27c089b5213d656038719bff7eeeff1c3e6ca43"
+    },
+    {
+      "path": "offline/criu/rpms/nettle-3.8.1-1.oe2403.riscv64.rpm",
+      "bytes": 982101,
+      "sha256": "3a66f71e3f58df11b9a0348fa99d0e685ca5ce1dc7e9b70b7509efc9046aed32"
+    },
+    {
+      "path": "offline/criu/rpms/newt-0.52.23-3.oe2403.riscv64.rpm",
+      "bytes": 83525,
+      "sha256": "93bc2fca3e8cec36844c455911fbeaca5b8401c51dce76997fb874fc85bbba51"
+    },
+    {
+      "path": "offline/criu/rpms/nftables-1.0.8-6.oe2403.riscv64.rpm",
+      "bytes": 334661,
+      "sha256": "3341b42a5fe924e1ecfc5f14ed049a6b66c6c8d4680cbce2aca0df64ab448f61"
+    },
+    {
+      "path": "offline/criu/rpms/p11-kit-0.25.0-2.oe2403.riscv64.rpm",
+      "bytes": 287761,
+      "sha256": "d2feb095cfbb84bb79a19af9b6e1b2dd8825845e70df434c5a041024978ee4d9"
+    },
+    {
+      "path": "offline/criu/rpms/p11-kit-trust-0.25.0-2.oe2403.riscv64.rpm",
+      "bytes": 122405,
+      "sha256": "c85264c6ddccd74a1f0f611bedd819ace3d4ac8926627dde238578d7402bc20e"
+    },
+    {
+      "path": "offline/criu/rpms/pcre2-10.42-7.oe2403.riscv64.rpm",
+      "bytes": 572297,
+      "sha256": "6fd21e713ce9cfc540103c2b260fc693245958a317a2485597fcfd0ed586bb83"
+    },
+    {
+      "path": "offline/criu/rpms/popt-1.19-2.oe2403.riscv64.rpm",
+      "bytes": 54289,
+      "sha256": "498d26970f706e27aecfdc2bb10c9b6f6c49e08094e579e3ec11e8e1860f80c7"
+    },
+    {
+      "path": "offline/criu/rpms/protobuf-25.1-3.oe2403.riscv64.rpm",
+      "bytes": 1020553,
+      "sha256": "ee6ab845df72476574929032026ad3327360db9101274d06bc1742d10defc814"
+    },
+    {
+      "path": "offline/criu/rpms/protobuf-c-1.4.1-1.oe2403.riscv64.rpm",
+      "bytes": 125749,
+      "sha256": "e14c6ed8b11b76093e1972acc83a18bea725f60b1225a1ed7c6966e29466fd25"
+    },
+    {
+      "path": "offline/criu/rpms/protobuf-compiler-25.1-3.oe2403.riscv64.rpm",
+      "bytes": 1091881,
+      "sha256": "b05af389e77fdea41529ad93d2e3593499b8b9ca546fe32d64e6e64029f615c1"
+    },
+    {
+      "path": "offline/criu/rpms/readline-8.2-2.oe2403.riscv64.rpm",
+      "bytes": 149301,
+      "sha256": "13be9bc627504610990bda23e2eb257a2a41a3071bdb6dc650cba4ab45d8a980"
+    },
+    {
+      "path": "offline/criu/rpms/slang-2.3.3-2.oe2403.riscv64.rpm",
+      "bytes": 614361,
+      "sha256": "30ca11eef1c456b06f268b131c9c4997f30c24b7bd7f06c0de1f65aacaf0cd6c"
+    },
+    {
+      "path": "offline/criu/rpms/zlib-1.2.13-4.oe2403.riscv64.rpm",
+      "bytes": 88641,
+      "sha256": "32bd23b8d38465fe6c2a6ecb343974c2fadcedf3749d99a1a64ffc5a200bd46a"
+    },
+    {
+      "path": "offline/criu/SHA256SUMS",
+      "bytes": 4977,
+      "sha256": "4221f3d6088c5cd930b82cf1283ca2791fe97f0d08047baeb40cae4e3c242ddb"
+    },
+    {
+      "path": "offline/criu/test_install.py",
+      "bytes": 4713,
+      "sha256": "08cf64bc1889ec1655cdd6ce0dc015acf8ca1db231c017b0ebd7d6dd6a9c30f0"
+    },
+    {
+      "path": "offline/monitoring/helm-v3.14.4-linux-riscv64.tar.gz",
+      "bytes": 15319801,
+      "sha256": "925782b159392d52df5ebab88e04e695217325894c6a32a9a779e865b7e32411"
+    },
+    {
+      "path": "offline/monitoring/rv-monitor-core-0.1.0-linux-riscv64.oci.tar",
+      "bytes": 6604800,
+      "sha256": "71bb6d65445db743d5ca7f41dbd1146914248f04393b98e03eb2c6669a1611e4"
+    },
+    {
+      "path": "offline/workload/rv-test-workload-20261104-linux-riscv64.oci.tar",
+      "bytes": 5591040,
+      "sha256": "b2a0e27e067820e67ecaf30b5a03fa14c1e77fa64006bd98ab8e3c1a09b43dbd"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 3385,
+      "sha256": "8670487b5168f55f0f968fb2d22aaaac37f07a64661792852856f041c3a64e38"
+    },
+    {
+      "path": "source/monitor-core/bin/rv-monitor-core-linux-riscv64",
+      "bytes": 6553784,
+      "sha256": "ee2fb53a70b98e482978459e19ab932091d14b8df2787c020b2dbb40b3c5c737"
+    },
+    {
+      "path": "source/monitor-core/cmd/rv-monitor-core/main.go",
+      "bytes": 1562,
+      "sha256": "bbd2b528a2d18dff970d84dd5aadce50b50aeaadb5ea31891aafc6c358f2f810"
+    },
+    {
+      "path": "source/monitor-core/CODE-STATISTICS.csv",
+      "bytes": 9894,
+      "sha256": "0f9bd6a1189bbfa6a043cfe0061a111517a959d2fded66f663618926654475b4"
+    },
+    {
+      "path": "source/monitor-core/CODE-STATISTICS.json",
+      "bytes": 20900,
+      "sha256": "379190dff81c44d558e1ed16f954f08fa5e2b5b596a3efbc83e44c1098e63cbb"
+    },
+    {
+      "path": "source/monitor-core/deploy/chart/Chart.yaml",
+      "bytes": 183,
+      "sha256": "b0ce6677d5f20e7799a557b9126cd0c20553baac09ce7e2ea698954d5ed964a5"
+    },
+    {
+      "path": "source/monitor-core/deploy/chart/MONITOR-CORE-NOTES.txt",
+      "bytes": 319,
+      "sha256": "87227ce7f7d449e4e9a48c845c362fdc44e5536b9deb2510fd308137e7029341"
+    },
+    {
+      "path": "source/monitor-core/deploy/chart/templates/config.yaml",
+      "bytes": 474,
+      "sha256": "356c6ed956e06ed7a1b93c51fd0c074890474cc570ef2027ebabded3b2244e30"
+    },
+    {
+      "path": "source/monitor-core/deploy/chart/templates/workloads.yaml",
+      "bytes": 1593,
+      "sha256": "b39579e505fa6f135effbc7dcc4a6c3875c50fae5b5ddc7d75b5a5daf6fd3144"
+    },
+    {
+      "path": "source/monitor-core/deploy/chart/values.yaml",
+      "bytes": 228,
+      "sha256": "25d21751bc9f6ab5df5ffa430825b7153a6d8127ab84f63d88298d757a8e14c7"
+    },
+    {
+      "path": "source/monitor-core/Dockerfile",
+      "bytes": 177,
+      "sha256": "95ca056149edcae963ac0e2881db19d7165c8e2c96028be16e618119f40f3fed"
+    },
+    {
+      "path": "source/monitor-core/go.mod",
+      "bytes": 40,
+      "sha256": "9ab0cc9bb923811222b94bd931e00f8deb37ad5c39a22798557823312d1e11d8"
+    },
+    {
+      "path": "source/monitor-core/integration/create_profile.py",
+      "bytes": 3887,
+      "sha256": "fcad41cc1bf29e41de80d39813ade78030b829e4b88fc8ee915c5134d3a3f7dd"
+    },
+    {
+      "path": "source/monitor-core/integration/smoke_test.py",
+      "bytes": 5261,
+      "sha256": "5663a9df52534550ddfdeac79eb8d4203bab87a8b1cd1408fcfe2abeaa12c26d"
+    },
+    {
+      "path": "source/monitor-core/internal/monitor/monitor_test.go",
+      "bytes": 7751,
+      "sha256": "1912155956c28ad3e5b74d0f67644b84f8f21920e53d67ae44b4adeb2de4ef20"
+    },
+    {
+      "path": "source/monitor-core/internal/monitor/parse.go",
+      "bytes": 3123,
+      "sha256": "cd9c8092f9a0072668231f50156b0fcdb6f5ecbe1b234ed4768c9fc8549d2cb6"
+    },
+    {
+      "path": "source/monitor-core/internal/monitor/query.go",
+      "bytes": 3230,
+      "sha256": "5d9d8ece8e06823228d1d415bcd7bfa90e5f285109d264d1e0150a148cd754d7"
+    },
+    {
+      "path": "source/monitor-core/internal/monitor/server.go",
+      "bytes": 8019,
+      "sha256": "b3d4785171958604008132a4f1f51456893c4bdb2e3a5147643d47b36b701ad8"
+    },
+    {
+      "path": "source/monitor-core/internal/monitor/store.go",
+      "bytes": 3441,
+      "sha256": "ec111a2f420570abd0b1d6e1611f33ef04448be5df0e7a7c1e3c5059c711b855"
+    },
+    {
+      "path": "source/monitor-core/monitor.example.json",
+      "bytes": 237,
+      "sha256": "4ffe99fbc16c26f37d0bc5a88a5e63ce8ec8158d3a8dae0939174f786cf713e1"
+    },
+    {
+      "path": "source/monitor-core/third_party/chunkenc/bstream.go",
+      "bytes": 12420,
+      "sha256": "0d09b239cbafb2273cb42a7c605bca7d44603c10cbe2df982c44298814c3e761"
+    },
+    {
+      "path": "source/monitor-core/third_party/chunkenc/interface.go",
+      "bytes": 997,
+      "sha256": "73c138943644afbc3a131c00e7ed906b2a56f1d706a23f5cb67a6f5cfbf3cfc1"
+    },
+    {
+      "path": "source/monitor-core/third_party/chunkenc/xor.go",
+      "bytes": 12398,
+      "sha256": "b087b0340725f9b93b04fb03524631ebbe254554523c02636c03f26be61a6cd6"
+    },
+    {
+      "path": "source/monitor-core/third_party/exemplar/exemplar.go",
+      "bytes": 1195,
+      "sha256": "2c531ea45c9898de0d0281480e49390df168a60c882766575e443f81a1bbc4c5"
+    },
+    {
+      "path": "source/monitor-core/third_party/labels/builder.go",
+      "bytes": 3001,
+      "sha256": "2de87fbbaa98f28c2677f28d09cc4751404bd918c7abbae8520c3c478fef0b36"
+    },
+    {
+      "path": "source/monitor-core/third_party/labels/float.go",
+      "bytes": 1612,
+      "sha256": "fb5a202ed1969cab61f917958f4ae143c3bd8c8bab1d5187c62177c3ed2076d4"
+    },
+    {
+      "path": "source/monitor-core/third_party/LICENSE.prometheus",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "source/monitor-core/third_party/LICENSE.prometheus-common",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "source/monitor-core/third_party/LICENSE.xxhash",
+      "bytes": 1068,
+      "sha256": "f566a9f97bacdaf00d9f21dd991e81dc11201c4e016c86b470799429a1c9a79c"
+    },
+    {
+      "path": "source/monitor-core/third_party/model/metadata.go",
+      "bytes": 1153,
+      "sha256": "57b56aa24cfac107448b11519d616c28098a0b645e8b7b7a0854fe152d47579a"
+    },
+    {
+      "path": "source/monitor-core/third_party/NOTICE.prometheus",
+      "bytes": 4370,
+      "sha256": "ac9e304462a58a4d71b6488423d4447e614c8b31d517fe24345016522c102a78"
+    },
+    {
+      "path": "source/monitor-core/third_party/PROVENANCE.json",
+      "bytes": 5460,
+      "sha256": "6ec29e6f697e3d82195641189c1ba81b1bb656baa56d4b876d4533a0247907d0"
+    },
+    {
+      "path": "source/monitor-core/third_party/textparse/interface.go",
+      "bytes": 1497,
+      "sha256": "0231ad24b3605a3b63323da1429263bc12c2de9c1d158a828048059f8ea64c67"
+    },
+    {
+      "path": "source/monitor-core/third_party/textparse/openmetricslex.l.go",
+      "bytes": 12990,
+      "sha256": "4ee99305f7806599724bd9b889405e2393dcc1c54a60c4ae29106b2f306d9aba"
+    },
+    {
+      "path": "source/monitor-core/third_party/textparse/openmetricsparse.go",
+      "bytes": 22430,
+      "sha256": "4b48ee5f4de21a1e63da847099505a6ea5623c021063b9d3950334784c3ac4b0"
+    },
+    {
+      "path": "source/monitor-core/third_party/textparse/promlex.l.go",
+      "bytes": 9840,
+      "sha256": "2bed0bc760b627c3fab4905067d863e6ed4a97034ea21bdb774ec83e83545574"
+    },
+    {
+      "path": "source/monitor-core/third_party/textparse/promparse.go",
+      "bytes": 13432,
+      "sha256": "720c61c550c607f0c7cfbc31d5bf6d039cc1955f3c9a0b661a34d750332d8068"
+    },
+    {
+      "path": "source/monitor-core/third_party/value/value.go",
+      "bytes": 1211,
+      "sha256": "c1928bc9c9f4d520aedfc244b2b322d786c47b51ad0f519a68ef4078508c9915"
+    },
+    {
+      "path": "source/monitor-core/third_party/xxhash/sum64.go",
+      "bytes": 2495,
+      "sha256": "a3379569790193440ab792706979f81826b66013db1d3975c202212797234faa"
+    },
+    {
+      "path": "source/monitor-core/tools/count_code.py",
+      "bytes": 5835,
+      "sha256": "16f5d13fe94e37648a229b194b132ad3496a7be1f2fbda46fc26a990cde5cd8b"
+    },
+    {
+      "path": "source/monitor-core/tools/package_oci.py",
+      "bytes": 3543,
+      "sha256": "52660d75af41c8bfe4f279823d459b150f926e83172d53cdd0235cb3d98c5d5c"
+    },
+    {
+      "path": "source/monitor-core/VALIDATION.json",
+      "bytes": 847,
+      "sha256": "954154921355c55b53d28350e33c4690bbf393ca4635497c3b74976918fbf058"
+    },
+    {
+      "path": "source/monitor-core/使用说明.txt",
+      "bytes": 5117,
+      "sha256": "6e78faf9952d9bfe855a92a1d975b03520fc74a239eb8e18da8880a9644f4cfd"
+    },
+    {
+      "path": "source/riscv-platform-components/images/pause/.dockerignore",
+      "bytes": 1,
+      "sha256": "684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1"
+    },
+    {
+      "path": "source/riscv-platform-components/images/pause/Dockerfile",
+      "bytes": 358,
+      "sha256": "9493ccf1a12b9ee867b0fa225a11ac7f612d9ed939058ff03147f0e2a5043012"
+    },
+    {
+      "path": "source/riscv-platform-components/images/pause/README.md",
+      "bytes": 251,
+      "sha256": "02d44ca38ea6eef4baa05e25a8b11c4b46b95ce9563c7ead8f7e5e865044aab5"
+    },
+    {
+      "path": "source/riscv-platform-components/k8s_master-1.sh",
+      "bytes": 22958,
+      "sha256": "54c2d722760cefd4952683d1600d677b1b8ab1f3dbb130a7ef279388d1cb07d7"
+    },
+    {
+      "path": "source/riscv-platform-components/k8s_master.sh",
+      "bytes": 20905,
+      "sha256": "3b9ed48da0b0898ef6292b7817f50ea2dfc7a5892821faec76ec13fb1547bf5d"
+    },
+    {
+      "path": "source/riscv-platform-components/k8s_master_other_components.sh",
+      "bytes": 6448,
+      "sha256": "1c4fd9773f53724fa5d8d8b7fccc2de0496501df4954cbf4c7790f40475454dc"
+    },
+    {
+      "path": "source/riscv-platform-components/k8s_node.sh",
+      "bytes": 5688,
+      "sha256": "bc4b2b57cdfe2eeafbde0d9ea33d4d707ac4172d49b6f67b1715739693a44f2e"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/01-hpa-expand/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/01-hpa-expand/manifests/deployment.yaml",
+      "bytes": 1474,
+      "sha256": "7c6657e22fc5771abd4bac5e6366ca40ddb3621f5c865c12662ba6de6151d9e2"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/01-hpa-expand/manifests/resource-policy.yaml",
+      "bytes": 381,
+      "sha256": "d43097d9ea58928a87e4f689c3c801dfb9e69a461cdbe7d707792bef071c5dcb"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/01-hpa-expand/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/01-hpa-expand/verify.py",
+      "bytes": 338,
+      "sha256": "ebb9b0b709630e083542b72c9a07e5e796541559fb7c0afc85943b9badb720f6"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/02-hpa-shrink/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/02-hpa-shrink/manifests/deployment.yaml",
+      "bytes": 1474,
+      "sha256": "7c6657e22fc5771abd4bac5e6366ca40ddb3621f5c865c12662ba6de6151d9e2"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/02-hpa-shrink/manifests/resource-policy.yaml",
+      "bytes": 381,
+      "sha256": "d43097d9ea58928a87e4f689c3c801dfb9e69a461cdbe7d707792bef071c5dcb"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/02-hpa-shrink/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/02-hpa-shrink/verify.py",
+      "bytes": 578,
+      "sha256": "33c42c33dc7c082f7e5cd72cbe93f1b7dfd4da1a74ca827e4160ac8a2da8d648"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/03-pod-affinity/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/03-pod-affinity/manifests/anchor.yaml",
+      "bytes": 1114,
+      "sha256": "2ebbb69d4a6cb8f0b16ff402dac11056f1f7f6ca035acfa00f1459dc3f1a74cb"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/03-pod-affinity/manifests/follower.yaml",
+      "bytes": 1359,
+      "sha256": "bf8577b24f6a3af4036b730bd973a968aa4064915e54ca5466133911ab37f4f6"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/03-pod-affinity/manifests/unmatched.yaml",
+      "bytes": 1371,
+      "sha256": "e4e0db7876474f17b51eb6177da198d9071bb12c78c0412c9786ed5897ebb305"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/03-pod-affinity/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/03-pod-affinity/verify.py",
+      "bytes": 567,
+      "sha256": "7728b4066d5655b3b645ba69df31daa28e45c714d03cf490fdfcf1b474cd9297"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/04-node-exclusion/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/04-node-exclusion/manifests/anchor.yaml",
+      "bytes": 1117,
+      "sha256": "82266a6afbb3c3dfc7c4944dee9a1696158351a68a7b45ac0d872e482263d135"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/04-node-exclusion/manifests/anti.yaml",
+      "bytes": 1449,
+      "sha256": "70a6b95a2ad1cda55280c4b074a68c1e40e8e63d9aa1c82cdc80e9eb85fa30cb"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/04-node-exclusion/manifests/pod.yaml",
+      "bytes": 1556,
+      "sha256": "5af3578570a134c47b42ef602a78680b0f3811e76525532136c66f0d5e9f62e2"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/04-node-exclusion/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/04-node-exclusion/verify.py",
+      "bytes": 676,
+      "sha256": "f72cc76947d8455a5f3ffef266b811e1d20a10b1ef9b447c85d779e44ff75309"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/05-preemption/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/05-preemption/manifests/high.yaml",
+      "bytes": 1124,
+      "sha256": "d74f55095c40e6024057bcdc4725bf53c219a8dbb1f2edd9b2aad1ef96667661"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/05-preemption/manifests/low.yaml",
+      "bytes": 1116,
+      "sha256": "3d5e842c9c7124294801faca8c3ae770cf028d690852b4bcd88e38f36521a3ae"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/05-preemption/manifests/priorities.yaml",
+      "bytes": 420,
+      "sha256": "571ad1e975cf1c5920458b129484a1a285ca6db5a4432fcb08355763ac2c1677"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/05-preemption/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/05-preemption/verify.py",
+      "bytes": 2176,
+      "sha256": "e0d247da5b7289b31b11033d15d0b1486645a6f592c426a4627dcaac6e8f7297"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/06-taint-reject/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/06-taint-reject/manifests/pod.yaml",
+      "bytes": 1088,
+      "sha256": "963c66e0eee4300e4cad3d30920b4ff84789f5943d0b0769017cd24c27338f25"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/06-taint-reject/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/06-taint-reject/verify.py",
+      "bytes": 517,
+      "sha256": "daababd118536993cfc1a8f406216c3209b5a44c2f29c9af36553f3840e31246"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/07-taint-tolerate/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/07-taint-tolerate/manifests/pod.yaml",
+      "bytes": 1270,
+      "sha256": "900d826644d850a02017b395ca892fc5668a5eeb15c9068d1735e08eb489d0fd"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/07-taint-tolerate/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/07-taint-tolerate/verify.py",
+      "bytes": 530,
+      "sha256": "f806bfef8ae8098eeae6b923fa174cea174ae05c8d38f3d3b53e82863d60e372"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/08-bcast/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/08-bcast/manifests/hierarchical.yaml",
+      "bytes": 5207,
+      "sha256": "1d128033d9b936c1b19e4f0b7269dd270819f8ea302f5a1862d91f2816bd0975"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/08-bcast/manifests/native.yaml",
+      "bytes": 5183,
+      "sha256": "27ec93f0485751dbf23f6a5fddb075079a77884c7793455e8b3ed0b6df3ddec0"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/08-bcast/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/08-bcast/verify.py",
+      "bytes": 2925,
+      "sha256": "2069e9ef44131e76c64a50f2c1ebf93f2ac5fe3338a6c39aca2da215263ea1e5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/09-reduce/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/09-reduce/manifests/hierarchical.yaml",
+      "bytes": 5211,
+      "sha256": "b6605b145cc2755119b6a435b228bdd135ed347810c6b97c67313bfd53ce520c"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/09-reduce/manifests/native.yaml",
+      "bytes": 5187,
+      "sha256": "45e954e6f772a0dcc4d00af16a6931d06478dc58ba304390ee2d1e5b8f1d03f3"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/09-reduce/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/09-reduce/verify.py",
+      "bytes": 2927,
+      "sha256": "55a2c7fa7e1cb253e0cf7c0e4bca65b41f56ccfe89344362522c08890a66ea74"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/10-allgather/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/10-allgather/manifests/hierarchical.yaml",
+      "bytes": 5223,
+      "sha256": "f946d2a01303a014ea2169914eb910f1813dc8b57c78f8ac2fadf4e648983c30"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/10-allgather/manifests/native.yaml",
+      "bytes": 5199,
+      "sha256": "2239d4ab8b9f666e800f2c241349a96792a1ccecaf0dc2c0a5a7f05bfceb55d3"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/10-allgather/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/10-allgather/verify.py",
+      "bytes": 2933,
+      "sha256": "9059fcd3144e99ce1c9e97785f18d636119c48bbaa1c7436e9ddeb3f23cbf6e7"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/11-fusion/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/11-fusion/manifests/overlap-limited.yaml",
+      "bytes": 5215,
+      "sha256": "10e3a2185874ebfdd85fa08ea6e8aa1e4deab4ff05f2b1bff26485522758af6a"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/11-fusion/manifests/overlap.yaml",
+      "bytes": 5191,
+      "sha256": "f616df75b28c1fe0ff77729371d31d1b30b5be91f7b637551a4b138f70a6e6d0"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/11-fusion/manifests/serial-limited.yaml",
+      "bytes": 5211,
+      "sha256": "b4ebec5e3986844d0e118b1c665b33f68091582543d1c2c283a2d1ea81aee123"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/11-fusion/manifests/serial.yaml",
+      "bytes": 5187,
+      "sha256": "c2dacf3046b0e1040bc612ca938692fcee84fedb7945ad06d1165ac1d6f02d18"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/11-fusion/run.sh",
+      "bytes": 697,
+      "sha256": "101dc4df6494498680af416517a32098f2c95d84fe9072af3466b8a06464d98d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/11-fusion/verify.py",
+      "bytes": 4067,
+      "sha256": "294519fc2b42e3e0bf61f4b4c75b10a096c757f7875c85906fb095b449356145"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/12-node-affinity/cleanup.sh",
+      "bytes": 217,
+      "sha256": "5e04f0b9ded3ebcb7ea04eb4830252535492d69057214972f533ab2ea9707df5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/12-node-affinity/manifests/pod.yaml",
+      "bytes": 1495,
+      "sha256": "2c747da43feeba6b6f21cbe75f256a1d759fc8785769264a3dd8bc795e694660"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/12-node-affinity/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/12-node-affinity/verify.py",
+      "bytes": 358,
+      "sha256": "a2bd5f77344b34a8a1915ced6e8829d1cec6647128ff6d4ebd496e8e83a41fa5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/13-delivery-contribution/run.sh",
+      "bytes": 665,
+      "sha256": "8d8ed0be24e7674b5570c9518a6e60775b49d794b4a7d97ffacebf301bee23d1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/13-delivery-contribution/verify.py",
+      "bytes": 2904,
+      "sha256": "c454335451631658b939a126104c786ecb68d567821c47b79d8f5c4468a46597"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/autoscale_case.py",
+      "bytes": 1813,
+      "sha256": "89a95a83f510ecb7af5c03b67df967d7abe502f13f81f24b54eda2ba61fcb58d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/catalog.json",
+      "bytes": 4046,
+      "sha256": "161baf3b1ff6575fd6cecfcad395d97fdb4162998fc1c19d0f20f59b3e91350e"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/performance.py",
+      "bytes": 2247,
+      "sha256": "aa3a0db61be7a5ed965edf56494fb72cc3daddaefaac6186e92bfa72d93f741d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/support.py",
+      "bytes": 16889,
+      "sha256": "71d6a7f9ad3819106e09483f4a663f736df6a0f22f1794704017f36c09ff7911"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/tests/test_delivery.py",
+      "bytes": 3366,
+      "sha256": "9fa3491030493a33acae26012d7ffbbbe8bd09a80cc8a2f5c55d979959313be6"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/acceptance/tests/test_support.py",
+      "bytes": 4074,
+      "sha256": "195069e9c53802e04c47f89706ca2802e6d90162e07343d2994dcb206c3418d6"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/check.py",
+      "bytes": 1463,
+      "sha256": "3e6de83d9ed4c00273987ffb269589c396fef47aaebef5dbc83b45a5fececa46"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/communication/benchmark.c",
+      "bytes": 6134,
+      "sha256": "b9c648d52f8b6a062027dac6d2db83cdf0087473ee552098af4ae034e3da5ce2"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/communication/build.sh",
+      "bytes": 458,
+      "sha256": "25bcb17f7bc000a82e3ba63151a4dd499d593bc3643840079e291f9185abb159"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/communication/Dockerfile",
+      "bytes": 1356,
+      "sha256": "25773c56505a3e089af727ad9993980cce71c010f89c246a2f800a099e2a1c65"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/communication/job.py",
+      "bytes": 5837,
+      "sha256": "4cf61f7253cea30805ffa292a0c61effcdadeaf920737347f9fd72b44dffc81d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/communication/launch.py",
+      "bytes": 559,
+      "sha256": "43115fa8e499ce51aa9a4b7d8e343438ae9ada517a53a750e2b0cdbf31111d6d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/communication/rebuild.sh",
+      "bytes": 672,
+      "sha256": "a2325251fbfa651a2b108505d1e3fa7fd9068093d4de66b177f3c9c114caa90e"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/communication/rv_collective.c",
+      "bytes": 5739,
+      "sha256": "759b9f87a115314568ed75f55e86187599463b910b37dba913c6b54471a449a8"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/communication/rv_collective.h",
+      "bytes": 653,
+      "sha256": "05a16431c2be214faec89341f52a704b6fd66d4a0ec84b929b22706762d6ff51"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/configure.py",
+      "bytes": 3528,
+      "sha256": "3f2e841f179b6a412b17f5432533267c55bffd57748ebac78726c5ae88c75cd5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/common.py",
+      "bytes": 6962,
+      "sha256": "df50dbc74f18039e5dcf13b241060c1b702d0aeb2f826c70af3fd884e447cbcb"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/config.example.json",
+      "bytes": 460,
+      "sha256": "e065cf06b9046cbbdeb51c21dca89585aed9752880f1113d0b4a52a873c71be8"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/controller.py",
+      "bytes": 2377,
+      "sha256": "6aa2af630abf5561ea5c597da008c111a0c9eea431da84759c8165b3b29f3d4b"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/credentials.py",
+      "bytes": 1268,
+      "sha256": "b4040f8ca6353fc13144189265623898ae26a69fac7e1879d80a7470391e91c7"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/install.sh",
+      "bytes": 2293,
+      "sha256": "6b5b901158f2b949a9728ce9ae5e2a09b5760511322965e32dc1f483ea9e1641"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/manifests.py",
+      "bytes": 3074,
+      "sha256": "40000527c9da94fb030a0b87ff8fe343050c1f72e9b3ea2e69d1453b2e42170e"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/network.py",
+      "bytes": 5455,
+      "sha256": "460311b6c3a266286437e149758fb60db8e53ccf150759ab4109483cfecd5c91"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/pod_metrics.py",
+      "bytes": 2819,
+      "sha256": "bf7e096ae6751dd8ecda02c3438fc5ea127e37493cecb19ef64683a2e60df477"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/resource.py",
+      "bytes": 6136,
+      "sha256": "160842e7115056f7d85d9dc56ec9d4501f474dbd2f42243af634a337e048481a"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/scenario.py",
+      "bytes": 8468,
+      "sha256": "1c050bc97504c609000cfa72a609c78451d4c202a908c0f7fd4dab0a268baf62"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/control/scheduler.py",
+      "bytes": 13247,
+      "sha256": "1ea8dd4aaec359c88a97c953f3b7e81d1a55af75c9137941beae9ba0f4f0a4e0"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/device-plugin/bin/rv-device-plugin",
+      "bytes": 10551480,
+      "sha256": "9e7bdc99d373c6da57ca2f99ee727e87f78ce133575f69013c20131205d133b1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/device-plugin/config.example.json",
+      "bytes": 256,
+      "sha256": "a380cc85738b0cdf7b9857885d8bc3d1e0f29d726f16b5e40a28723a709488e8"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/device-plugin/go.mod",
+      "bytes": 424,
+      "sha256": "979652e9c1e9e6f84547bc7172c81bbf82aa6c13adf83e63e7e52ab065b7cee1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/device-plugin/go.sum",
+      "bytes": 4495,
+      "sha256": "d02810a352ec62cc4eddbaebcc0f1e5d6617e53e062ed067b05462e2bc73e326"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/device-plugin/install.sh",
+      "bytes": 1231,
+      "sha256": "89f230eacb81851680986d2252abcc613bad1ab0a898636048af242f725031e7"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/device-plugin/main.go",
+      "bytes": 5943,
+      "sha256": "3d3cc574483bc140fb0692b2cbbb090575930ac1caae07eaadca82b3c2d9f915"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/device-plugin/main_test.go",
+      "bytes": 523,
+      "sha256": "132d373f21a95da6d0d5d3306ca4fec2711dca8b893b6a74f41cbdd424196b98"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/build-source.sh",
+      "bytes": 276,
+      "sha256": "01f01395107f99d85f3b23e3061e9bbc008f5ad0d10db7977e7fa2f8f9e05c88"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/chart/Chart.yaml",
+      "bytes": 183,
+      "sha256": "b0ce6677d5f20e7799a557b9126cd0c20553baac09ce7e2ea698954d5ed964a5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/chart/MONITOR-CORE-NOTES.txt",
+      "bytes": 319,
+      "sha256": "87227ce7f7d449e4e9a48c845c362fdc44e5536b9deb2510fd308137e7029341"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/chart/templates/config.yaml",
+      "bytes": 474,
+      "sha256": "356c6ed956e06ed7a1b93c51fd0c074890474cc570ef2027ebabded3b2244e30"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/chart/templates/workloads.yaml",
+      "bytes": 1593,
+      "sha256": "b39579e505fa6f135effbc7dcc4a6c3875c50fae5b5ddc7d75b5a5daf6fd3144"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/chart/values.yaml",
+      "bytes": 228,
+      "sha256": "25d21751bc9f6ab5df5ffa430825b7153a6d8127ab84f63d88298d757a8e14c7"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/config.example.json",
+      "bytes": 197,
+      "sha256": "6f08f7158b8869c7c9b75700a7b2dc0d519e61cc24c6e1c2536a0032b55336b7"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/config.offline.k8snode1.json",
+      "bytes": 321,
+      "sha256": "a38809e36457d9d7e4894101bfd14cc7fec3b68afc2102ba747ad611bd115471"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/install.py",
+      "bytes": 4397,
+      "sha256": "23a318d682bc7bd6b8bd3d3f1886bb410540f89002eb87ef686f215ddfea1eb2"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/remove-grafana.sh",
+      "bytes": 617,
+      "sha256": "19cc6a5a945df0c6609bb1f380de64ae3e36a65f0040e114db0fb29f52878214"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/test_offline.py",
+      "bytes": 4933,
+      "sha256": "54b670ea2a75d36eb802718722a9321cc1c406c9144735787a3b03e4a8eb6e0e"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/ecosystem/verify.py",
+      "bytes": 3361,
+      "sha256": "dc1b47fa7709caa15e876cb49f4570187c46b1014cf6ea459b98df0c7f9361a0"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/install.sh",
+      "bytes": 749,
+      "sha256": "10d64b9d7e3741362d221257852412615732623b33596841850dffd8cbd9641c"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/integrate.sh",
+      "bytes": 564,
+      "sha256": "4bf32d1cea07aeef1c7a872e188b45ac70fcf5447eca91dd6c23a1fb5be22779"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/apply-update.py",
+      "bytes": 1777,
+      "sha256": "583f3d8f222913b85ffc2502c33b3073884c98befdef11097a83bc50ddfe9d6a"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/bin/rv-migrate-runtime",
+      "bytes": 15728640,
+      "sha256": "179a48a74f4412268e787c054f97033c113680f125fd23c211fb042f7f4df407"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/bin/rv-migrate-runtime.build.txt",
+      "bytes": 4250,
+      "sha256": "dd8ae54ca80d2a281903455e1196872a3911750bf98d54ba235ac40a103621d3"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/bin/SHA256SUMS",
+      "bytes": 180,
+      "sha256": "ed5362c534dbd96ecb78d8833f17fbd9cf886f3a60f35a910fffe5f1a7bf3d3b"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/config.example.json",
+      "bytes": 570,
+      "sha256": "3b9ae630858f295fee21813d27a066bd0f2fe3e1926d4a83027b7328efe08467"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/config.single-node.json",
+      "bytes": 436,
+      "sha256": "d824139e8c2fcb610626ba66408d45ea4272f8c7c8879501e605bc66b12c63b4"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/configure_kubelet.py",
+      "bytes": 1183,
+      "sha256": "71a71930cee15b7bfab755e7bcf098a1ff2616241824b29e41a475c8316eba2d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/BUILD-INFO.json",
+      "bytes": 42081,
+      "sha256": "ca3921b52b575b8c6c485fb7a4303a7e0264b00d7020a570f42d2b76fdbd56ab"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/containerd",
+      "bytes": 36176032,
+      "sha256": "87f0efef9c714465b3b51b289e546e70063bedd81114e9eda85868b58876335c"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/containerd-shim-runc-v2",
+      "bytes": 13172896,
+      "sha256": "08b133d82fb49bc57bc5b530328f2b8f84b677d18ce6e4b88667ad7bdc9be8bf"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/ctr",
+      "bytes": 20054176,
+      "sha256": "e55c15a4a8b6624fe0c4a256c83002e0b1d4341e1cc3e41f255d286d8b0ec5a4"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/licenses/containerd-LICENSE.txt",
+      "bytes": 10765,
+      "sha256": "4bbe3b885e8cd1907ab4cf9a41e862e74e24b5422297a4f2fe524e6a30ada2b4"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/licenses/containerd-NOTICE.txt",
+      "bytes": 519,
+      "sha256": "03f0b4bcaecfdb491ef5a7d320e2c2adf886c732d34e3fff87d52dbaec64d8c3"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/licenses/Go-LICENSE.txt",
+      "bytes": 1453,
+      "sha256": "911f8f5782931320f5b8d1160a76365b83aea6447ee6c04fa6d5591467db9dad"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/licenses/THIRD-PARTY-LICENSES.txt",
+      "bytes": 1392829,
+      "sha256": "6b81366035c161da9f5ea509d31e1903bd8041a02a6323ae499cfa3d67a4a945"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/SHA256SUMS",
+      "bytes": 399,
+      "sha256": "b45b0da700045b8fa8e59feca46ed7e677fe706560a10e78e61746575e1cb79b"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/containerd-bin/SOURCE_COMMIT",
+      "bytes": 41,
+      "sha256": "5d7a9fcb0ed1d09d2051e3dd3823a368b82a07406b123d4a5e5a04d1ea337d7d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/controller.py",
+      "bytes": 24200,
+      "sha256": "6cf371bbcf6d61b397b70e51cb661c4e469023665764b73d00a8952716f6e877"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/examples/counter.py",
+      "bytes": 326,
+      "sha256": "ea168215c56a61722fb8306ddc56dc90e093e4f562ba508fcd7b241d7514a9ac"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/examples/Dockerfile",
+      "bytes": 226,
+      "sha256": "9d731e580e58ae34fe112f662b2fd634691e448ebb74dc22347dc8e12585d1b4"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/examples/same-node.yaml",
+      "bytes": 194,
+      "sha256": "f0260bd59191acaab083a58fa942be2633a56c3352d62e9f1084c43f5309ac84"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/manifests/crd.yaml",
+      "bytes": 1637,
+      "sha256": "f012d87a94dbacd37124adda17202b5d9178a8daa3201fef0e86fe52333ca583"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/manifests/rbac.yaml",
+      "bytes": 1320,
+      "sha256": "e278ed93338b1d87e25f6537b9c193fa7e0f3a55401fcd1e5abc4de46829fff9"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-criu/AUDIT.json",
+      "bytes": 1473,
+      "sha256": "20dbe783a86613135de0be95f721bbf7b7d5308b9d57911c0c14d791873611cd"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-criu/install.py",
+      "bytes": 7065,
+      "sha256": "3fb2eb91316f87f11d7143f1ff05643c8c31d6013fa83185665c3bfaa904e10e"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-criu/manifest.json",
+      "bytes": 131851,
+      "sha256": "77d5e15cd157542350016667ddb63d3886184b3c2b0f2c77aa2982598151b679"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-criu/PROVENANCE.json",
+      "bytes": 26274,
+      "sha256": "812c0f59eb89f4687f4749512b0877ffd292ac377e606ca6efc6513032f473b6"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-criu/README.md",
+      "bytes": 4636,
+      "sha256": "caa0aadb26a5b49c60030bf68a1fd57b6264eab6b349319249b07ca42b9e5dcf"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-criu/test_install.py",
+      "bytes": 4713,
+      "sha256": "08cf64bc1889ec1655cdd6ce0dc015acf8ca1db231c017b0ebd7d6dd6a9c30f0"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/bin/containerd",
+      "bytes": 37355672,
+      "sha256": "3958a4f7ccae237da44443b7debe67f4ad698183c1758dfb19fb971488c886c0"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/bin/containerd.build.txt",
+      "bytes": 12846,
+      "sha256": "201a15e739cfca66cf3c1166cd8ee56e37a9e3d19902928c80fa93c38ba5c3af"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/bin/SHA256SUMS",
+      "bytes": 164,
+      "sha256": "75d230bd8dd0a3fbdf40306cc5166c3592ece92646cf0a08274e8d8f1f7167b8"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/BUILD-INFO.json",
+      "bytes": 2429,
+      "sha256": "739b914c5bc5b97e2be45776a1e98f937b04af1340e5926e542cacac8e07e08c"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/build.sh",
+      "bytes": 881,
+      "sha256": "b9bd6771b1f341316ea5f183b9c36a2c2e6c4fcec7e54b0a889249336b95ae0c"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/install-node.sh",
+      "bytes": 5192,
+      "sha256": "8f87ea16b76e6b324208850b611326b0d80a8956d792a37e327a40653a7a06ae"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/licenses/containerd-LICENSE.txt",
+      "bytes": 10765,
+      "sha256": "4bbe3b885e8cd1907ab4cf9a41e862e74e24b5422297a4f2fe524e6a30ada2b4"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/licenses/containerd-NOTICE.txt",
+      "bytes": 519,
+      "sha256": "03f0b4bcaecfdb491ef5a7d320e2c2adf886c732d34e3fff87d52dbaec64d8c3"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/licenses/Go-LICENSE.txt",
+      "bytes": 1479,
+      "sha256": "2d36597f7117c38b006835ae7f537487207d8ec407aa9d9980794b2030cbc067"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/licenses/THIRD-PARTY-LICENSES.txt",
+      "bytes": 1392829,
+      "sha256": "6b81366035c161da9f5ea509d31e1903bd8041a02a6323ae499cfa3d67a4a945"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/patch_containerd.py",
+      "bytes": 1225,
+      "sha256": "7822807c7a2bf8e58051b40d9b45f8ee9f1b353e3fa41fbe34fe8b78c725380d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/rv_restore_image_cache.go",
+      "bytes": 1567,
+      "sha256": "91f834cbf076921c522f86a06821f4c3730ebe2c7b63e16df67f03b900434fe3"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/offline-runtime/rv_restore_image_cache_test.go",
+      "bytes": 1938,
+      "sha256": "dc0aa7a9594881e900ff6c6b5ab674b90a6d4df674de6a137f0ce5d9f09f93d8"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/RELEASE-CHECKS.json",
+      "bytes": 804,
+      "sha256": "2e6431fb94442e8d1649f0e310688bbc9c02d4e4b595e59cb88d7d860000c3e3"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/retry.py",
+      "bytes": 1398,
+      "sha256": "20ceb8089a2d1f054f3b6acdb85ebfead3761b32b065aa460b652559fcab2532"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime/go.mod",
+      "bytes": 2671,
+      "sha256": "a948ab51629ed559ca9714c8e7d52068abf6a3cf9052f2ca7c981b8dbd432091"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime/go.sum",
+      "bytes": 21630,
+      "sha256": "37eedf1d5b398b62b0d629ab3a34fa2d87fbe412297970297b26248a9e5601c2"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime/local.go",
+      "bytes": 3655,
+      "sha256": "1bc3dbaf6b871ff0ddebb7e0e1115097a44b52e6067ae8bdfcc297740f726173"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime/local_test.go",
+      "bytes": 1093,
+      "sha256": "e7147d69f19016ed842d7b03fc7233a26af48fd31b3c93ca67df3ef6a35b790e"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime/main.go",
+      "bytes": 23590,
+      "sha256": "a92d2dc42d4dc37f8897ba2f101bb8b77feadf1cc9402c3fcd7849538c861ca7"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime/main_test.go",
+      "bytes": 5768,
+      "sha256": "e6c83492299a413a8cc6f880af9d1b6f263eada7fe01b8661188f729e80b07af"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime-upgrade/check_config.py",
+      "bytes": 4220,
+      "sha256": "010629a0e55baf952f69b1dac417953c9968a7b2263e77997284a8aad6628550"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime-upgrade/prepare.sh",
+      "bytes": 4966,
+      "sha256": "defaefeb1da933dee691a74c225801abe8153bf43edd2bb0602b99d7d0b80849"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime-upgrade/PROVENANCE.json",
+      "bytes": 1231,
+      "sha256": "82637eeacaa550d526cd54b2a4446c85f8b62c3708ee3fd4c3de953a9d68e59a"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime-upgrade/README.md",
+      "bytes": 9288,
+      "sha256": "9f2fa3422339ec884cff8b3ef191a4615a3b50993a5ce6234b0e92755fcd5c1e"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime-upgrade/switch.sh",
+      "bytes": 4240,
+      "sha256": "54f8008f778a61dd429fc5a4e658cac021be6d981438079240b1f9bbc1d58561"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/runtime-upgrade/test_config.py",
+      "bytes": 6259,
+      "sha256": "59634b590c664df65446b8680b1ac8e3f68a3042c325ecf65208efc256ae0ed0"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/scripts/build-containerd.sh",
+      "bytes": 2263,
+      "sha256": "023338e2cda19e5c2cd388a00e0da73ecf0ea18167fcb94bd668f62d122a6a17"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/scripts/build.sh",
+      "bytes": 284,
+      "sha256": "21c85ec7f6ecc29c4263ac055a36cc2c113b493bace764d9b7a587cd536c1d83"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/scripts/disable-node.sh",
+      "bytes": 517,
+      "sha256": "3c2f70749be85983ed4aae0ae49f3db4d9c33dbc2c7c1372e48ac90399a9fca9"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/scripts/enable-sudo-helper.sh",
+      "bytes": 1033,
+      "sha256": "ed7796ae2daf552b0930e8bc4f3be59dd0a57079bd8cf2abeca15ac8e2876952"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/scripts/install-controller.sh",
+      "bytes": 2771,
+      "sha256": "6af87b8e59e26392a19533479fc2894c30dafb00a67a2517cc5c5a9ad2a90ef1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/scripts/install-node.sh",
+      "bytes": 2108,
+      "sha256": "9ce5e18969cb7a725fd90f604cb91767ceba041bad28e52a6d1a58e4e87619e6"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/scripts/rebuild.sh",
+      "bytes": 469,
+      "sha256": "6de5eea478b065df1c733b9c922ec7bd626dec0e50836ed423022fd25152fb7b"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/tests/01-preflight.sh",
+      "bytes": 587,
+      "sha256": "092d36bac328c330986aa24077dc50936fed6f1686950835ce638f34b931f24e"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/tests/02-create-counter.sh",
+      "bytes": 1273,
+      "sha256": "38f1e20740bc7fdfb7ff6457a6976e90cb04f11cde7da881e3ba4b7a0a215f6f"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/tests/03-migrate.sh",
+      "bytes": 1415,
+      "sha256": "3891b01030a48791abfc1d2774ed6dc46122a1be51640a9080c6062311fa81be"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/tests/04-verify-memory.sh",
+      "bytes": 2250,
+      "sha256": "5ddcadf8ede8969d371a8466ce201770011c59517cc3a63e8769ba0935eaf00d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/tests/05-local-unit.sh",
+      "bytes": 213,
+      "sha256": "0d97a63a957df52abd044d68975b6bb7df7254ed0cc8d242ee0d2ba280e4bb99"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/tests/06-restore-local.sh",
+      "bytes": 624,
+      "sha256": "09aaddba6bdc5a529c2b23a6e00a497a58eab007b807d8f4467556400b908429"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/migration/tests/test_controller.py",
+      "bytes": 14016,
+      "sha256": "eaab3697b5f766206ba43cb18048ad129bc73226cfee0b3e2a83950e4ca913b9"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/network-host/example.yaml",
+      "bytes": 495,
+      "sha256": "d148c8e05387552e06700a005a1dbcfc689994cdde8d95b581d30ed10df58878"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/node/agent.py",
+      "bytes": 4788,
+      "sha256": "11a1f0b1288f07fb91eebcf3ad018339ba9e5fae7186ad0d573d95e7658993ef"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/node/install.sh",
+      "bytes": 826,
+      "sha256": "9f8350ce1818565144dd10bff8004b8a1126e31a46f731faac422b92e65baa72"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/resource/examples.yaml",
+      "bytes": 616,
+      "sha256": "e1700eb7cbf47a3407e2b1fa26d0e69eb871b51c818ff9e99f2c673185d0f531"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/scenario/example.yaml",
+      "bytes": 556,
+      "sha256": "99728c28a0c720f8bd2b1694479e3ceb190b31ba03fbfce5db5446842b55e7f5"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/scripts/export-communication.sh",
+      "bytes": 1396,
+      "sha256": "ddd0e036123c18a6d7c08cae224f370482cb4a638af36f786ba994b44003b14c"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/scripts/go-env.sh",
+      "bytes": 672,
+      "sha256": "447b48a34f856e780b565e50035e6d3a88d5c242c2fa7ae955464b25012e37a7"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/scripts/install-go.sh",
+      "bytes": 1552,
+      "sha256": "8dda86b6463936c0c3acd8b6fb49dcfeef519a2995af18bacf20101a33d52607"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/scripts/issue-node-credentials.sh",
+      "bytes": 3183,
+      "sha256": "af7df6524c0c902e367e22097f48053b1cfcc19132ddee0abb84ce892224d377"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/00-local-unit.sh",
+      "bytes": 156,
+      "sha256": "67f1ebda0b9821bd5e83b800eaf32ad1c67f5e135d373c988793d334233bdeeb"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/cases.py",
+      "bytes": 11605,
+      "sha256": "17fb066576406bb9c08b1fdab7213a8749649f3a155f191f584569ab6f1de199"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/device_case.py",
+      "bytes": 1617,
+      "sha256": "993424a79ad3e549067c84065ce849b03f6a6cb9ba6ce93275a106fdf7e0b910"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/ecosystem_case.py",
+      "bytes": 939,
+      "sha256": "36da5645357164f6718a9dbd1fb3662feb1b83b902f21fa0fd72353ab3235efb"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/isolation_case.py",
+      "bytes": 1872,
+      "sha256": "30e72b0fdd3b912efa376a57472037485406cb9c83b969869193ef7f759c7575"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/latency.py",
+      "bytes": 3569,
+      "sha256": "44a5f25a2ca85f3e83d5a8da6830e70465a40bd91adff3faf2730e616ad0c59f"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/mpi_case.py",
+      "bytes": 5416,
+      "sha256": "77cd04dcd7c1c5f064cafb91daed53b2e1f3045dc345bbce3c5d97a73fab896b"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/network_compare.py",
+      "bytes": 8525,
+      "sha256": "2b9f84ba81d72173ba7977617ea533d47d5fccc97bcfe9f9972f90905446db6b"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/prepare.sh",
+      "bytes": 433,
+      "sha256": "1a388c4fd0fbeac6ef23ea49a094f17e7420bcd03a81856bfb16476dbdd73ae3"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/realtime.c",
+      "bytes": 3762,
+      "sha256": "952238135a186fe68a5d729c20ff5a97058b29d20eb42efb4a043261bc7b0c93"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/report.py",
+      "bytes": 5940,
+      "sha256": "17e7cf4f3de2d93d469a8779084f47c211734427ee7cdc428d65613b697da512"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/scale.py",
+      "bytes": 3555,
+      "sha256": "5222316bbfd0a4c6c64447a02874df01d00deed71313bf5a44023a386a8e5955"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/scenario_case.py",
+      "bytes": 1856,
+      "sha256": "af6ac5c2d4d41cc015cd6650c8d592786255c724ed89faec01e5db1036537c5b"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/tests/test_platform.py",
+      "bytes": 21937,
+      "sha256": "4b7c0a457dda56cf6bf5f35d70096a76bfacf76a202ef4a22ffa165d0527923a"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/validation/tests/test_scheduler.py",
+      "bytes": 6856,
+      "sha256": "83b9293af9c5bea6b6fd0ca8c87a7033f2d803dea8b03d0f0d7db4f87fbfe8b1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/workload/bin/rv-test-workload",
+      "bytes": 5570744,
+      "sha256": "500e2ff77d6601831200f09660ac321b501cf5e11a130000ccabed528d930eb1"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/workload/go.mod",
+      "bytes": 47,
+      "sha256": "17a94b8caa729ee306c1301b029ca3608c41394265bd2edaadac4ff33466487d"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/workload/main.go",
+      "bytes": 3364,
+      "sha256": "b0409823f13ec7b07ec86cb38c479539b8dcf098f9b4cf4a3464b6710a6a1b95"
+    },
+    {
+      "path": "source/riscv-platform-components/platform/workload/main_test.go",
+      "bytes": 1126,
+      "sha256": "c26468a223d7823e11a39db77d142eeb3f42557e46fa01717e228f3cd0b25467"
+    },
+    {
+      "path": "TEST-STEPS.txt",
+      "bytes": 10569,
+      "sha256": "606572377204de9c8d16d81e435a008c4766c0a422007a49fc4cb9d219472e4e"
+    },
+    {
+      "path": "tools/audit_images.py",
+      "bytes": 5078,
+      "sha256": "3fb7f6408df1a8dd1e24048d4ce1cd46045d6bdd3b9c45e4288e265b8be8b7d3"
+    },
+    {
+      "path": "tools/contribution.py",
+      "bytes": 5460,
+      "sha256": "0ba8a8133b8491875c08db7ee481a0cc231cae0d3fb4001ecb41f19764cf4975"
+    },
+    {
+      "path": "tools/install.py",
+      "bytes": 3853,
+      "sha256": "8719313eca122e9752e803d9f84b7fc06769c74f3f8a8156f72f436e5a770e32"
+    },
+    {
+      "path": "tools/package_workload.py",
+      "bytes": 2872,
+      "sha256": "97144e8e8a703a9b0e64c02f148100a01991a1db35396055b5fe08f2f56c677e"
+    },
+    {
+      "path": "tools/release.py",
+      "bytes": 5735,
+      "sha256": "aa292ef4176d86912ce3064a4fcd3cce5525d23e7b0aa0389d2cae46d801cbca"
+    },
+    {
+      "path": "VALIDATION.json",
+      "bytes": 985,
+      "sha256": "45928d0bc1f1a484a8b3fff4160c84bce96e4180f4eb2130ad48e591c5ad7919"
+    }
+  ]
+}
