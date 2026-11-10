@@ -1,0 +1,25 @@
+{
+  "release": "20261104",
+  "scope": "container management 3-2-0001 through 3-2-0013",
+  "local": {
+    "platformPythonUnitTests": 53,
+    "acceptancePythonUnitTests": 15,
+    "migrationPythonUnitTests": 16,
+    "monitorInstallerPythonUnitTests": 12,
+    "monitorGoTests": "passed",
+    "deviceGoTests": "passed",
+    "testWorkloadGoTests": "passed",
+    "localMonitorControllerHttpIntegration": "passed",
+    "projectScheduler": "six acceptance manifest paths exercised against local API fixture",
+    "podMemoryCollector": "cgroup v1/v2 fixtures and bundled monitor HTTP integration passed",
+    "helmLintAndTemplate": "passed",
+    "parsedAcceptanceManifests": 27,
+    "bashSyntaxFiles": 63,
+    "ociImageMetadataLayerDigestsAndBinaries": "verified for all three runtime images"
+  },
+  "site": {
+    "riscvClusterCases": "pending",
+    "fusionPerformance": "pending real measurements",
+    "openSourceContribution": "pending verified actual public commit and assessor scope"
+  }
+}

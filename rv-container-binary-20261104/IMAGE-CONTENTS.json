@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "images": [
+    {
+      "file": "offline/communication/rv-communication-0.2.0.tar.gz",
+      "manifestDigest": "sha256:8bdc6843680f510de914c73a5ade3ad97f2f13999036dd0c532bc0249c9141d9",
+      "architecture": "riscv64",
+      "os": "linux",
+      "layers": [
+        {
+          "digest": "sha256:923d5a3e6821ee88e83ad44b818c0294892d4bc8258e7f359ca8c3f615628456",
+          "bytes": 26975175,
+          "verified": true
+        },
+        {
+          "digest": "sha256:97c5d779d510ba415d170b62de3e13e5d076935f584762fe301be130dff2faa2",
+          "bytes": 191309412,
+          "verified": true
+        },
+        {
+          "digest": "sha256:98efef76b1190984c0909c647e63212deee4c8a0b2a91d796ae0b7af94c8294a",
+          "bytes": 70374996,
+          "verified": true
+        },
+        {
+          "digest": "sha256:2e5ccd98803e2b0f1d031e3475f74d6e91935535d66e4a7b48b16c58f31508a8",
+          "bytes": 93158,
+          "verified": true
+        },
+        {
+          "digest": "sha256:15ab7caa1aa400b6792c8881b623193e5d6fc8bfcf6fbbf2ea42fd92540b422e",
+          "bytes": 518612992,
+          "verified": true
+        },
+        {
+          "digest": "sha256:f2060a5b0a65d823c07f133a2d3bd0c2f2373a086fd0eef5dc21e0bb52593e9a",
+          "bytes": 62464,
+          "verified": true
+        },
+        {
+          "digest": "sha256:dc510101890d13ba6e41800d9de3c9b0e318b714b3735e2bde0a26202d277e13",
+          "bytes": 101376,
+          "verified": true
+        }
+      ],
+      "imageAnnotations": {
+        "io.containerd.image.name": "localhost/rv-communication:0.2.0",
+        "org.opencontainers.image.ref.name": "0.2.0"
+      },
+      "configDigest": "sha256:f662eb868fb97d08721bb9e3e68bc86db19fe5867d38134d83bd4cd5fce3e31c",
+      "mpiExecutableSha256": "0c27987eff2d8b9933705a6f03616a08604834f4d27e76d46f7a74b429912736",
+      "matchingSourceFiles": [
+        "benchmark.c",
+        "rv_collective.c",
+        "rv_collective.h",
+        "launch.py"
+      ],
+      "executionScope": "rv-bench runs inside this image with its matched MPI/libc runtime; not a host binary"
+    },
+    {
+      "file": "offline/monitoring/rv-monitor-core-0.1.0-linux-riscv64.oci.tar",
+      "manifestDigest": "sha256:c9fdcbd0f72528294e9fc305f56818b1e3db409e88559b78304bc41fb5ea04d0",
+      "architecture": "riscv64",
+      "os": "linux",
+      "layers": [
+        {
+          "digest": "sha256:7c260c9b36d0417b1f9110b16090e8c31fa8d58d74db4b97a3df022ef2a3ea9b",
+          "bytes": 6594560,
+          "verified": true
+        }
+      ],
+      "imageAnnotations": {
+        "org.opencontainers.image.ref.name": "0.1.0",
+        "io.containerd.image.name": "localhost/rv-monitor-core:0.1.0"
+      },
+      "configDigest": "sha256:135a6e3c43aeee6751aec8a02f0587051911618fa41af2e9cd0cbb4c8e16ba42",
+      "executableSha256": "ee2fb53a70b98e482978459e19ab932091d14b8df2787c020b2dbb40b3c5c737"
+    },
+    {
+      "file": "offline/workload/rv-test-workload-20261104-linux-riscv64.oci.tar",
+      "manifestDigest": "sha256:c4701e255963754e9753af14ea78ffa017a8e22ef328fb1e644fa8cf0793e8d2",
+      "architecture": "riscv64",
+      "os": "linux",
+      "layers": [
+        {
+          "digest": "sha256:d07f31c992d003c868c27730ffbe29abb663517523af182388356609e05ce94c",
+          "bytes": 5580800,
+          "verified": true
+        }
+      ],
+      "imageAnnotations": {
+        "org.opencontainers.image.ref.name": "20261104",
+        "io.containerd.image.name": "localhost/rv-test-workload:20261104"
+      },
+      "configDigest": "sha256:0eaf43eec17cf9c9432a30f9c3b88bac525dc4aa836d9e93bd52a3f93121ec83",
+      "executableSha256": "500e2ff77d6601831200f09660ac321b501cf5e11a130000ccabed528d930eb1"
+    }
+  ],
+  "hardwareExecution": "not performed"
+}

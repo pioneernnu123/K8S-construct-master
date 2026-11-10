@@ -1,0 +1,8 @@
+{
+  "repositoryUrl": "https://github.com/填入实际公开仓库/项目.git",
+  "revision": "填入完整提交哈希",
+  "mapping": {
+    "platform": "source/platform",
+    "monitor-core": "source/monitor-core"
+  }
+}
